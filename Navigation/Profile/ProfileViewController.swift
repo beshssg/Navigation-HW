@@ -18,6 +18,9 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .lightGray
         
         view.addSubview(profileHeaderView)
+        view.addSubview(profileHeaderView.imageAvatar)
+        view.addSubview(profileHeaderView.name)
+    
         
         
     }
