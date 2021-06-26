@@ -19,7 +19,9 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(profileHeaderView)
         view.addSubview(profileHeaderView.imageAvatar)
-        view.addSubview(profileHeaderView.name)
+        view.addSubview(profileHeaderView.nameLabel)
+        view.addSubview(profileHeaderView.statusField)
+        view.addSubview(profileHeaderView.pressButton)
     
         
         
