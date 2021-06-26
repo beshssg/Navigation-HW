@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileHeaderView.nameLabel)
         view.addSubview(profileHeaderView.statusField)
         view.addSubview(profileHeaderView.pressButton)
+        view.addSubview(profileHeaderView.statusShowText)
     
         
         
