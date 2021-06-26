@@ -15,9 +15,16 @@ class ProfileViewController: UIViewController {
 
         view.backgroundColor = .lightGray
         
+        let profileHeaderView = ProfileHeaderView()
+        view.addSubview(profileHeaderView)
         
     }
     
+    override func viewWillLayoutSubviews() {
+        
+    }
+    
+   
 
  
 
