@@ -12,16 +12,10 @@
         <!--Profile-->
         <scene sceneID="bRX-aC-Cpi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwS-K6-ZGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Ca1-kw-dKJ" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3" customClass="ProfileHeaderView" customModule="Navigation" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="FCL-IZ-fe8"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                    </view>
                     <navigationItem key="navigationItem" title="Profile" id="TPi-FS-zh0"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwS-K6-ZGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768.11594202898561" y="196.875"/>
         </scene>
@@ -167,9 +161,6 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

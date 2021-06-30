@@ -18,22 +18,19 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .lightGray
         
         view.addSubview(profileHeaderView)
-        view.addSubview(profileHeaderView.imageAvatar)
-        view.addSubview(profileHeaderView.nameLabel)
-        view.addSubview(profileHeaderView.statusField)
-        view.addSubview(profileHeaderView.pressButton)
-        view.addSubview(profileHeaderView.statusShowText)
-    
         
+        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        
+        profileHeaderView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        profileHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        profileHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        profileHeaderView.heightAnchor.constraint(equalToConstant: view.frame.size.height / 2).isActive = true
+
         
     }
     
-    override func viewWillLayoutSubviews() {
-        profileHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-    }
     
    
-
- 
-
 }
+
+
