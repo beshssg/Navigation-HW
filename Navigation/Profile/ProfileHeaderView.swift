@@ -94,29 +94,28 @@ class ProfileHeaderView: UIView {
                                      imageAvatar.widthAnchor.constraint(equalToConstant: 180),
                                      imageAvatar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
                                      imageAvatar.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -imageAvatar.frame.size.height),
-                                     imageAvatar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16)])
+                                     imageAvatar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                                     
+                                     nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+                                     nameLabel.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
+                                     nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     
+                                     statusField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 100),
+                                     statusField.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
+                                     statusField.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     
+                                     statusShowText.topAnchor.constraint(equalTo: statusField.topAnchor, constant: 30),
+                                     statusShowText.leadingAnchor.constraint(equalTo: imageAvatar.safeAreaLayoutGuide.leadingAnchor, constant: 192),
+                                     statusShowText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                                     statusShowText.heightAnchor.constraint(equalToConstant: 40),
+                                     
+                                     pressButton.topAnchor.constraint(equalTo: statusShowText.topAnchor, constant: 54),
+                                     pressButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+                                     pressButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                                     pressButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     
         imageAvatar.layer.cornerRadius = 90
-        
-        nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
-        statusField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 100).isActive = true
-        statusField.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192).isActive = true
-        statusField.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        
-        statusShowText.topAnchor.constraint(equalTo: statusField.topAnchor, constant: 30).isActive = true
-        statusShowText.leadingAnchor.constraint(equalTo: imageAvatar.safeAreaLayoutGuide.leadingAnchor, constant: 192).isActive = true
-        statusShowText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        statusShowText.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-        pressButton.topAnchor.constraint(equalTo: statusShowText.topAnchor, constant: 54).isActive = true
-        pressButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        pressButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        pressButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        
     }
 
     @objc func statusTextChanged(textStatus: UIButton) {
