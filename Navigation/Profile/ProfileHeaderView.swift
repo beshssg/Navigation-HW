@@ -15,6 +15,7 @@ class ProfileHeaderView: UIView {
         imageView.layer.borderWidth = 6
         imageView.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 90
         return imageView
         
         
@@ -66,15 +67,6 @@ class ProfileHeaderView: UIView {
         return status
     }()
     
-    
-    
-   // Method for printing the status in the console
-
-//    @objc func pressButtonFunc(sender: UIButton) {
-//        print(statusField.text!)
-//
-//    }
-    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { mask in
@@ -93,7 +85,6 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate([imageAvatar.heightAnchor.constraint(equalToConstant: 180),
                                      imageAvatar.widthAnchor.constraint(equalToConstant: 180),
                                      imageAvatar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-                                     imageAvatar.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -imageAvatar.frame.size.height),
                                      imageAvatar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
                                      
                                      nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
@@ -114,8 +105,6 @@ class ProfileHeaderView: UIView {
                                      pressButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
                                      pressButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-    
-        imageAvatar.layer.cornerRadius = 90
     }
 
     @objc func statusTextChanged(textStatus: UIButton) {
