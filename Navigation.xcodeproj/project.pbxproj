@@ -18,6 +18,7 @@
 		060782CA250CEE7200A87020 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C9250CEE7200A87020 /* Post.swift */; };
 		8E2CCE302687B9D900775982 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */; };
 		8E2CCE322687B9F600775982 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */; };
+		8E2CCE582694BF5900775982 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE572694BF5900775982 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		060782C9250CEE7200A87020 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		8E2CCE572694BF5900775982 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */,
 				8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */,
+				8E2CCE572694BF5900775982 /* LoginViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2CCE582694BF5900775982 /* LoginViewController.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
