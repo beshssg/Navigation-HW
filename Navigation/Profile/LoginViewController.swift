@@ -84,43 +84,55 @@ class LoginViewController: UIViewController {
     }
     
     func setupConstraints() {
-        [scrollView, logoImage, emailText, passwordText, loginButton].forEach { view.addSubview($0) }
+        view.addSubview(scrollView)
+        [logoImage, emailText, passwordText, loginButton].forEach { scrollView.addSubview($0) }
         [scrollView, logoImage, emailText, passwordText, loginButton].forEach { make in make.translatesAutoresizingMaskIntoConstraints = false }
+        scrollView.keyboardDismissMode = .onDrag
         
         let constraints = [
-            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            logoImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            logoImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 120),
             logoImage.widthAnchor.constraint(equalToConstant: 100),
             logoImage.heightAnchor.constraint(equalToConstant: 100),
             
             emailText.bottomAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 120),
-            emailText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            emailText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            emailText.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
+            emailText.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
             emailText.heightAnchor.constraint(equalToConstant: 50),
             
             passwordText.bottomAnchor.constraint(equalTo: emailText.bottomAnchor, constant: 48),
-            passwordText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            passwordText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            passwordText.heightAnchor.constraint(equalToConstant: 50),
+            passwordText.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
+            passwordText.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
+            passwordText.heightAnchor.constraint(equalToConstant: SetupConstraints.height),
             
             loginButton.bottomAnchor.constraint(equalTo: passwordText.bottomAnchor, constant: 68),
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
+            loginButton.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
+            loginButton.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
+            loginButton.heightAnchor.constraint(equalToConstant: SetupConstraints.height),
+            loginButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 10)
         ]
         
         NSLayoutConstraint.activate(constraints)
     }
     
     @objc func keyboardShow(_ notification: Notification) {
-        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-        scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize!.height)
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset.bottom = .zero
+            scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        }
+        
             
         
     }
     
     @objc func keyboardHide(_ notification: Notification) {
-        scrollView.contentOffset = CGPoint.zero
+        scrollView.contentInset = .zero
+        scrollView.verticalScrollIndicatorInsets = .zero
     }
     
     @objc func buttonTapped(sender: UIButton) {

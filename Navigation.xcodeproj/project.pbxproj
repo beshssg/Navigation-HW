@@ -19,6 +19,7 @@
 		8E2CCE302687B9D900775982 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */; };
 		8E2CCE322687B9F600775982 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */; };
 		8E2CCE582694BF5900775982 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE572694BF5900775982 /* LoginViewController.swift */; };
+		8E2CCE5C26971C8600775982 /* SetupConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE5B26971C8600775982 /* SetupConstraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		8E2CCE572694BF5900775982 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8E2CCE5B26971C8600775982 /* SetupConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupConstraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */,
 				8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */,
 				8E2CCE572694BF5900775982 /* LoginViewController.swift */,
+				8E2CCE5B26971C8600775982 /* SetupConstraints.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
 				8E2CCE302687B9D900775982 /* ProfileViewController.swift in Sources */,
+				8E2CCE5C26971C8600775982 /* SetupConstraints.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
 				8E2CCE322687B9F600775982 /* ProfileHeaderView.swift in Sources */,
