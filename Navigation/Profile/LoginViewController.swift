@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     let scrollView = UIScrollView()
     
     var logoImage: UIImageView = {
-       let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
+        let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
         return logo
     }()
     
@@ -61,8 +61,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //UIColor.init(named: "#4885CC")
         
         view.backgroundColor = .white
         

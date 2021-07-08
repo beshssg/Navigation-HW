@@ -68,17 +68,13 @@ class ProfileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { mask in
-            mask.translatesAutoresizingMaskIntoConstraints = false
-        }
+            mask.translatesAutoresizingMaskIntoConstraints = false }
+        
         autoLayout()
     }
 
     func autoLayout() {
-        addSubview(imageAvatar)
-        addSubview(nameLabel)
-        addSubview(statusField)
-        addSubview(statusShowText)
-        addSubview(pressButton)
+        [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { addSubview($0) }
         
         NSLayoutConstraint.activate([imageAvatar.heightAnchor.constraint(equalToConstant: 180),
                                      imageAvatar.widthAnchor.constraint(equalToConstant: 180),
