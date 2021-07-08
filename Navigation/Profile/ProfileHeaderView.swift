@@ -17,8 +17,6 @@ class ProfileHeaderView: UIView {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 90
         return imageView
-        
-        
     }()
     
     var nameLabel: UILabel = {
