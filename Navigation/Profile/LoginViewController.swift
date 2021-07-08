@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    let scrollView = UIScrollView()
+    
     var logoImage: UIImageView = {
        let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
         return logo
@@ -19,7 +21,7 @@ class LoginViewController: UIViewController {
         let text = UITextField()
         text.placeholder = "Email or phone"
         text.indent(size: 10)
-        text.backgroundColor = #colorLiteral(red: 0.9489265084, green: 0.949085772, blue: 0.9704096913, alpha: 1)
+        text.backgroundColor = .systemGray6
         text.autocorrectionType = .no
         text.textColor = .black
         text.font = UIFont.systemFont(ofSize: 16)
@@ -35,7 +37,7 @@ class LoginViewController: UIViewController {
         text.placeholder = "Password"
         text.isSecureTextEntry = true
         text.indent(size: 10)
-        text.backgroundColor = #colorLiteral(red: 0.9489265084, green: 0.949085772, blue: 0.9704096913, alpha: 1)
+        text.backgroundColor = .systemGray6
         text.autocorrectionType = .no
         text.textColor = .black
         text.font = UIFont.systemFont(ofSize: 16)
@@ -60,7 +62,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        //UIColor.init(named: "#4885CC")
+        
+        view.backgroundColor = .white
         
         navigationController?.navigationBar.isHidden = true
         
@@ -82,26 +86,26 @@ class LoginViewController: UIViewController {
     }
     
     func setupConstraints() {
-        [logoImage, emailText, passwordText, loginButton].forEach { view.addSubview($0) }
-        [logoImage, emailText, passwordText, loginButton].forEach { make in make.translatesAutoresizingMaskIntoConstraints = false }
+        [scrollView, logoImage, emailText, passwordText, loginButton].forEach { view.addSubview($0) }
+        [scrollView, logoImage, emailText, passwordText, loginButton].forEach { make in make.translatesAutoresizingMaskIntoConstraints = false }
         
         let constraints = [
             logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 220),
+            logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
             logoImage.widthAnchor.constraint(equalToConstant: 100),
             logoImage.heightAnchor.constraint(equalToConstant: 100),
             
-            emailText.topAnchor.constraint(equalTo: logoImage.topAnchor, constant: 220),
+            emailText.bottomAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 120),
             emailText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             emailText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             emailText.heightAnchor.constraint(equalToConstant: 50),
             
-            passwordText.topAnchor.constraint(equalTo: emailText.topAnchor, constant: 48),
+            passwordText.bottomAnchor.constraint(equalTo: emailText.bottomAnchor, constant: 48),
             passwordText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             passwordText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             passwordText.heightAnchor.constraint(equalToConstant: 50),
             
-            loginButton.topAnchor.constraint(equalTo: passwordText.topAnchor, constant: 68),
+            loginButton.bottomAnchor.constraint(equalTo: passwordText.bottomAnchor, constant: 68),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             loginButton.heightAnchor.constraint(equalToConstant: 50)
@@ -111,19 +115,14 @@ class LoginViewController: UIViewController {
     }
     
     @objc func keyboardShow(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
+        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize!.height)
+            
+        
     }
     
     @objc func keyboardHide(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0 {
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
+        scrollView.contentOffset = CGPoint.zero
     }
     
     @objc func buttonTapped(sender: UIButton) {
