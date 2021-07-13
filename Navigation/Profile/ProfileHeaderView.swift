@@ -54,7 +54,7 @@ class ProfileHeaderView: UIView {
     
     var statusShowText: UITextField = {
         let status = UITextField()
-        status.indent(size: 10)
+        status.indentText(size: 10)
         status.placeholder = "Status..."
         status.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         status.layer.cornerRadius = 12
@@ -67,40 +67,41 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { mask in
-            mask.translatesAutoresizingMaskIntoConstraints = false }
-        
         autoLayout()
     }
 
     func autoLayout() {
         [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { addSubview($0) }
+        [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { mask in mask.translatesAutoresizingMaskIntoConstraints = false }
         
-        NSLayoutConstraint.activate([imageAvatar.heightAnchor.constraint(equalToConstant: 180),
-                                     imageAvatar.widthAnchor.constraint(equalToConstant: 180),
-                                     imageAvatar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-                                     imageAvatar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-                                     
-                                     nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-                                     nameLabel.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
-                                     nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                     
-                                     statusField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 100),
-                                     statusField.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
-                                     statusField.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                     
-                                     statusShowText.topAnchor.constraint(equalTo: statusField.topAnchor, constant: 30),
-                                     statusShowText.leadingAnchor.constraint(equalTo: imageAvatar.safeAreaLayoutGuide.leadingAnchor, constant: 192),
-                                     statusShowText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-                                     statusShowText.heightAnchor.constraint(equalToConstant: 40),
-                                     
-                                     pressButton.topAnchor.constraint(equalTo: statusShowText.topAnchor, constant: 54),
-                                     pressButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-                                     pressButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-                                     pressButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        let constraints = [
+            imageAvatar.heightAnchor.constraint(equalToConstant: 180),
+            imageAvatar.widthAnchor.constraint(equalToConstant: 180),
+            imageAvatar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: SetupConstraints.indent),
+            imageAvatar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
+            
+            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            nameLabel.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                         
+            statusField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 100),
+            statusField.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
+            statusField.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                         
+            statusShowText.topAnchor.constraint(equalTo: statusField.topAnchor, constant: 30),
+            statusShowText.leadingAnchor.constraint(equalTo: imageAvatar.safeAreaLayoutGuide.leadingAnchor, constant: 192),
+            statusShowText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
+            statusShowText.heightAnchor.constraint(equalToConstant: 40),
+                                         
+            pressButton.topAnchor.constraint(equalTo: statusShowText.topAnchor, constant: 54),
+            pressButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
+            pressButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
+            pressButton.heightAnchor.constraint(equalToConstant: SetupConstraints.height),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
-
+    
     @objc func statusTextChanged(textStatus: UIButton) {
         statusField.text = statusShowText.text
     }
@@ -114,7 +115,7 @@ class ProfileHeaderView: UIView {
 // MARK: Method for indentation:
 
 extension UITextField {
-    func indent(size: CGFloat) {
+    func indentText(size: CGFloat) {
         self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
         self.leftViewMode = .always
     }

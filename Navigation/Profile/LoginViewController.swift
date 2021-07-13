@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     var emailText: UITextField = {
         let text = UITextField()
         text.placeholder = "Email or phone"
-        text.indent(size: 10)
+        text.indentText(size: 10)
         text.backgroundColor = .systemGray6
         text.autocorrectionType = .no
         text.textColor = .black
@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         let text = UITextField()
         text.placeholder = "Password"
         text.isSecureTextEntry = true
-        text.indent(size: 10)
+        text.indentText(size: 10)
         text.backgroundColor = .systemGray6
         text.autocorrectionType = .no
         text.textColor = .black
