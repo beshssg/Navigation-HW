@@ -22,6 +22,9 @@
 		8E2CCE5C26971C8600775982 /* SetupConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE5B26971C8600775982 /* SetupConstraints.swift */; };
 		8E2CCE5E2698F82500775982 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CCE5D2698F82500775982 /* PostModel.swift */; };
 		8E32E4CD269B228F0048D164 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32E4CC269B228F0048D164 /* PostTableViewCell.swift */; };
+		8E32E4E526A49CE70048D164 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32E4E426A49CE70048D164 /* PhotosCollectionViewCell.swift */; };
+		8E32E4E726A49DE70048D164 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32E4E626A49DE70048D164 /* PhotosViewController.swift */; };
+		8E32E4E926AB02870048D164 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32E4E826AB02870048D164 /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		8E2CCE5B26971C8600775982 /* SetupConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupConstraints.swift; sourceTree = "<group>"; };
 		8E2CCE5D2698F82500775982 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		8E32E4CC269B228F0048D164 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		8E32E4E426A49CE70048D164 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E32E4E626A49DE70048D164 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		8E32E4E826AB02870048D164 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,32 +80,115 @@
 		060782B0250CE27700A87020 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				8E2CCE2E2687B9C900775982 /* Profile */,
-				060782B1250CE27700A87020 /* AppDelegate.swift */,
-				060782B3250CE27700A87020 /* SceneDelegate.swift */,
-				060782B5250CE27700A87020 /* FeedViewController.swift */,
-				060782B7250CE27700A87020 /* Main.storyboard */,
-				060782BA250CE27A00A87020 /* Assets.xcassets */,
-				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
-				060782BF250CE27A00A87020 /* Info.plist */,
-				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
-				060782C7250CEE5D00A87020 /* PostViewController.swift */,
-				060782C9250CEE7200A87020 /* Post.swift */,
+				8E32E4D726A08EA10048D164 /* Application */,
+				8E32E4D326A08D170048D164 /* Model */,
+				8E32E4D026A08CBF0048D164 /* View */,
+				8E32E4CF26A08CAB0048D164 /* Controller */,
+				8E32E4CE26A08C8D0048D164 /* Cell */,
+				8E32E4D226A08CED0048D164 /* SetupConstraints */,
+				8E32E4D626A08DAD0048D164 /* Resources */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		8E2CCE2E2687B9C900775982 /* Profile */ = {
+		8E2CCE2E2687B9C900775982 /* ProfileController */ = {
 			isa = PBXGroup;
 			children = (
 				8E2CCE2F2687B9D900775982 /* ProfileViewController.swift */,
-				8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */,
 				8E2CCE572694BF5900775982 /* LoginViewController.swift */,
+				8E32E4E626A49DE70048D164 /* PhotosViewController.swift */,
+			);
+			path = ProfileController;
+			sourceTree = "<group>";
+		};
+		8E32E4CE26A08C8D0048D164 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				8E32E4CC269B228F0048D164 /* PostTableViewCell.swift */,
-				8E2CCE5D2698F82500775982 /* PostModel.swift */,
+				8E32E4E426A49CE70048D164 /* PhotosCollectionViewCell.swift */,
+				8E32E4E826AB02870048D164 /* PhotosTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8E32E4CF26A08CAB0048D164 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E32E4D526A08D3F0048D164 /* FeedController */,
+				8E2CCE2E2687B9C900775982 /* ProfileController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E32E4D026A08CBF0048D164 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E32E4D126A08CE10048D164 /* ProfileView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8E32E4D126A08CE10048D164 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				8E2CCE312687B9F600775982 /* ProfileHeaderView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		8E32E4D226A08CED0048D164 /* SetupConstraints */ = {
+			isa = PBXGroup;
+			children = (
 				8E2CCE5B26971C8600775982 /* SetupConstraints.swift */,
 			);
-			path = Profile;
+			path = SetupConstraints;
+			sourceTree = "<group>";
+		};
+		8E32E4D326A08D170048D164 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E32E4D426A08D210048D164 /* ProfileModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E32E4D426A08D210048D164 /* ProfileModel */ = {
+			isa = PBXGroup;
+			children = (
+				060782C9250CEE7200A87020 /* Post.swift */,
+				8E2CCE5D2698F82500775982 /* PostModel.swift */,
+			);
+			path = ProfileModel;
+			sourceTree = "<group>";
+		};
+		8E32E4D526A08D3F0048D164 /* FeedController */ = {
+			isa = PBXGroup;
+			children = (
+				060782C5250CEB0A00A87020 /* InfoViewController.swift */,
+				060782C7250CEE5D00A87020 /* PostViewController.swift */,
+				060782B5250CE27700A87020 /* FeedViewController.swift */,
+			);
+			path = FeedController;
+			sourceTree = "<group>";
+		};
+		8E32E4D626A08DAD0048D164 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				060782B7250CE27700A87020 /* Main.storyboard */,
+				060782BA250CE27A00A87020 /* Assets.xcassets */,
+				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
+				060782BF250CE27A00A87020 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8E32E4D726A08EA10048D164 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				060782B1250CE27700A87020 /* AppDelegate.swift */,
+				060782B3250CE27700A87020 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E32E4E926AB02870048D164 /* PhotosTableViewCell.swift in Sources */,
 				8E2CCE582694BF5900775982 /* LoginViewController.swift in Sources */,
+				8E32E4E526A49CE70048D164 /* PhotosCollectionViewCell.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
@@ -181,6 +272,7 @@
 				8E2CCE302687B9D900775982 /* ProfileViewController.swift in Sources */,
 				8E2CCE5C26971C8600775982 /* SetupConstraints.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
+				8E32E4E726A49DE70048D164 /* PhotosViewController.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
 				8E2CCE322687B9F600775982 /* ProfileHeaderView.swift in Sources */,
 				8E2CCE5E2698F82500775982 /* PostModel.swift in Sources */,
@@ -332,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79RZ866842;
-				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_FILE = Navigation/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79RZ866842;
-				INFOPLIST_FILE = Navigation/Info.plist;
+				INFOPLIST_FILE = Navigation/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

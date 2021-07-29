@@ -11,7 +11,7 @@ import UIKit
 class ProfileHeaderView: UIView {
 
     var imageAvatar: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "snake_eyes"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "17"))
         imageView.layer.borderWidth = 6
         imageView.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         imageView.clipsToBounds = true
@@ -38,8 +38,8 @@ class ProfileHeaderView: UIView {
     
     var pressButton: UIButton = {
        let button = UIButton()
-       button.addTarget(self, action: #selector(statusTextChanged(textStatus:)), for: .touchUpInside)
-       button.addTarget(self, action: #selector(statusTextChanged(textStatus:)), for: .editingChanged)
+       button.addTarget(self, action: #selector(statusTextChanged), for: .touchUpInside)
+       button.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
        button.setTitle("Set status", for: .normal)
        button.setTitleColor(.white, for: .normal)
        button.backgroundColor = #colorLiteral(red: 0, green: 0.4780977368, blue: 0.9984350801, alpha: 1)
@@ -102,7 +102,7 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
-    @objc func statusTextChanged(textStatus: UIButton) {
+    @objc func statusTextChanged() {
         statusField.text = statusShowText.text
     }
     
@@ -116,7 +116,7 @@ class ProfileHeaderView: UIView {
 
 extension UITextField {
     func indentText(size: CGFloat) {
-        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
+        self.leftView = UIView(frame: CGRect(x: frame.minX, y: frame.minY, width: size, height: frame.height))
         self.leftViewMode = .always
     }
 }

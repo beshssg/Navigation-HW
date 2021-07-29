@@ -10,14 +10,14 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let scrollView = UIScrollView()
+    private let scrollView = UIScrollView()
     
-    var logoImage: UIImageView = {
+    private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
         return logo
     }()
     
-    var emailText: UITextField = {
+    private lazy var emailText: UITextField = {
         let text = UITextField()
         text.placeholder = "Email or phone"
         text.indentText(size: 10)
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         return text
    }()
     
-    var passwordText: UITextField = {
+    private lazy var passwordText: UITextField = {
         let text = UITextField()
         text.placeholder = "Password"
         text.isSecureTextEntry = true
@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         return text
     }()
     
-    var loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel"), for: .normal)
         button.setTitle("Log In", for: .normal)
@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         view.addSubview(scrollView)
         [logoImage, emailText, passwordText, loginButton].forEach { scrollView.addSubview($0) }
         [scrollView, logoImage, emailText, passwordText, loginButton].forEach { make in make.translatesAutoresizingMaskIntoConstraints = false }
@@ -116,7 +116,6 @@ class LoginViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: SetupConstraints.height),
             loginButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 10)
         ]
-        
         NSLayoutConstraint.activate(constraints)
     }
     
@@ -125,9 +124,6 @@ class LoginViewController: UIViewController {
             scrollView.contentInset.bottom = .zero
             scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
         }
-        
-            
-        
     }
     
     @objc func keyboardHide(_ notification: Notification) {
@@ -135,7 +131,7 @@ class LoginViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
     
-    @objc func buttonTapped(sender: UIButton) {
+    @objc func buttonTapped() {
         let pvc = ProfileViewController()
         navigationController?.pushViewController(pvc, animated: true)
     }

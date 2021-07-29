@@ -20,7 +20,7 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    var authorLabel: UILabel = {
+    private lazy var authorLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textColor = .black
@@ -28,14 +28,14 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-    var imagePost: UIImageView = {
+    private lazy var imagePost: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.backgroundColor = .black
         return image
     }()
     
-    var descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .systemGray
@@ -43,14 +43,14 @@ class PostTableViewCell: UITableViewCell {
         return label
     }()
     
-    var likesLabel: UILabel = {
+    private lazy var likesLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
     
-    var viewsLabel: UILabel = {
+    private lazy var viewsLabel: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .black
@@ -67,7 +67,7 @@ class PostTableViewCell: UITableViewCell {
         setupTableViews()
     }
     
-    func setupTableViews() {
+    private func setupTableViews() {
         [authorLabel, imagePost, descriptionLabel, likesLabel, viewsLabel].forEach { contentView.addSubview($0) }
         [authorLabel, imagePost, descriptionLabel, likesLabel, viewsLabel].forEach { mask in
             mask.translatesAutoresizingMaskIntoConstraints = false }
@@ -76,7 +76,7 @@ class PostTableViewCell: UITableViewCell {
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: SetupConstraints.indent),
             authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: SetupConstraints.indent),
             authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            authorLabel.bottomAnchor.constraint(equalTo: imagePost.topAnchor, constant: -12),
+            authorLabel.bottomAnchor.constraint(equalTo: imagePost.topAnchor, constant: -SetupConstraints.indent2),
                         
             imagePost.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imagePost.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -93,11 +93,6 @@ class PostTableViewCell: UITableViewCell {
             viewsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -SetupConstraints.indent),
             viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -SetupConstraints.indent),
         ]
-
         NSLayoutConstraint.activate(constraints)
-       
     }
-
- 
-
 }
