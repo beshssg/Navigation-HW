@@ -22,10 +22,10 @@ struct GalleryPhotos {
 
 struct Storage {
     static let tableModel = [
-        PostModel(author: "Netflix", description: "Встречаем первый трейлер второго сезона сериала «Ведьмак» Ожидаем премьеру 17 декабря.", image: #imageLiteral(resourceName: "vedmak"), likes: 62446, views: 124463),
-        PostModel(author: "Marvel", description: "Зомби-версии Кэпа и Старка выглядят просто отлично!", image: #imageLiteral(resourceName: "marvel"), likes: 111324, views: 231324),
-        PostModel(author: "Наука и Техника", description: "", image: #imageLiteral(resourceName: "hacker"), likes: 225320, views: 542320),
-        PostModel(author: "На Случай Важных Переговоров", description: "", image: #imageLiteral(resourceName: "mem"), likes: 107389, views: 217389)
+        PostModel(author: "Netflix", description: "Встречаем первый трейлер второго сезона сериала «Ведьмак» Ожидаем премьеру 17 декабря.", image: UIImage(named: "vedmak")!, likes: 62446, views: 124463),
+        PostModel(author: "Marvel", description: "Зомби-версии Кэпа и Старка выглядят просто отлично!", image: UIImage(named: "marvel")!, likes: 111324, views: 231324),
+        PostModel(author: "Наука и Техника", description: "", image: UIImage(named: "hacker")!, likes: 225320, views: 542320),
+        PostModel(author: "На Случай Важных Переговоров", description: "", image: UIImage(named: "mem")!, likes: 107389, views: 217389)
     ]
     
     static let galleryPhotos = [

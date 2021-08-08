@@ -11,7 +11,7 @@ import UIKit
 class ProfileHeaderView: UIView {
 
     var imageAvatar: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "17"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "10"))
         imageView.layer.borderWidth = 6
         imageView.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         imageView.clipsToBounds = true

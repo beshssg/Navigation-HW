@@ -16,6 +16,14 @@ class ProfileViewController: UIViewController {
     
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
     
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(systemName: "multiply"), for: .normal)
+        button.tintColor = .white
+        button.isHidden = true
+        return button
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +31,7 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .lightGray
         
         profileViewSetup()
+        animatedAvatar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,8 +40,8 @@ class ProfileViewController: UIViewController {
     }
     
     func profileViewSetup() {
-        [profileHeaderView, postTableView, photosCollectionView].forEach { view.addSubview($0) }
-        [profileHeaderView, postTableView, photosCollectionView].forEach { mask in mask.translatesAutoresizingMaskIntoConstraints = false }
+        [profileHeaderView, postTableView, photosCollectionView, closeButton].forEach { view.addSubview($0) }
+        [profileHeaderView, postTableView, photosCollectionView, closeButton].forEach { mask in mask.translatesAutoresizingMaskIntoConstraints = false }
         
         photosCollectionView.register(PhotosTableViewCell.self, forCellReuseIdentifier: String(describing: PhotosTableViewCell.self))
         photosCollectionView.backgroundColor = .white
@@ -59,9 +68,44 @@ class ProfileViewController: UIViewController {
             postTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             postTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             postTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ]
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func animatedAvatar() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        profileHeaderView.imageAvatar.addGestureRecognizer(tap)
+        profileHeaderView.imageAvatar.isUserInteractionEnabled = true
+    }
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.5) { [self] in
+            let imageView = sender.view as! UIImageView
+            let newImageView = UIImageView(image: imageView.image)
+            newImageView.frame = UIScreen.main.bounds
+            newImageView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+            newImageView.contentMode = .scaleAspectFit
+            newImageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(dissMissfullscreenImage))
+            newImageView.addGestureRecognizer(tap)
+            view.addSubview(newImageView)
+            closeButton.addTarget(self, action: #selector(dissMissfullscreenImage), for: .touchUpInside)
+        }
+        
+        UIView.animate(withDuration: 0.3) { [self] in
+            closeButton.isHidden = false
+        }
+    }
+
+    @objc func dissMissfullscreenImage(sender: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.5) { [self] in
+            closeButton.isHidden = true
+            sender.view?.removeFromSuperview()
+        }
     }
 }
 

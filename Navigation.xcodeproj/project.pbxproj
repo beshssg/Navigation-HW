@@ -84,7 +84,6 @@
 				8E32E4D326A08D170048D164 /* Model */,
 				8E32E4D026A08CBF0048D164 /* View */,
 				8E32E4CF26A08CAB0048D164 /* Controller */,
-				8E32E4CE26A08C8D0048D164 /* Cell */,
 				8E32E4D226A08CED0048D164 /* SetupConstraints */,
 				8E32E4D626A08DAD0048D164 /* Resources */,
 			);
@@ -124,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8E32E4D126A08CE10048D164 /* ProfileView */,
+				8E32E4CE26A08C8D0048D164 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
