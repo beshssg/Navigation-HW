@@ -17,13 +17,28 @@ class ProfileViewController: UIViewController {
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
     
     private lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "multiply"), for: .normal)
-        button.tintColor = .white
-        button.isHidden = true
+        var button = UIButton()
+        button.sizeToFit()
+        button.setImage(UIImage(systemName: "multiply"), for: button.state)
+        button.tintColor = #colorLiteral(red: 0.1176327839, green: 0.1176561788, blue: 0.117627643, alpha: 0.9985017123).withAlphaComponent(0)
+        button.isUserInteractionEnabled = true
+        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closedButton))
+        button.addGestureRecognizer(tapGestureRecognizer)
         return button
     }()
     
+    private lazy var backgroundPhotos: UIView = {
+        var view = UIView()
+        view.frame = UIScreen.main.bounds
+        var blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        return view
+    }()
+    
+    private lazy var photosFullScreen = UIImageView(image: profileHeaderView.imageAvatar.image)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,34 +92,52 @@ class ProfileViewController: UIViewController {
     }
     
     func animatedAvatar() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        profileHeaderView.imageAvatar.addGestureRecognizer(tap)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(photoFullScreen))
+        profileHeaderView.imageAvatar.addGestureRecognizer(tapGestureRecognizer)
         profileHeaderView.imageAvatar.isUserInteractionEnabled = true
     }
     
-    @objc func imageTapped(sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.5) { [self] in
-            let imageView = sender.view as! UIImageView
-            let newImageView = UIImageView(image: imageView.image)
-            newImageView.frame = UIScreen.main.bounds
-            newImageView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-            newImageView.contentMode = .scaleAspectFit
-            newImageView.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer(target: self, action: #selector(dissMissfullscreenImage))
-            newImageView.addGestureRecognizer(tap)
-            view.addSubview(newImageView)
-            closeButton.addTarget(self, action: #selector(dissMissfullscreenImage), for: .touchUpInside)
-        }
-        
-        UIView.animate(withDuration: 0.3) { [self] in
-            closeButton.isHidden = false
+    @objc private func photoFullScreen() {
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: []) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) { [self] in
+                view.addSubview(backgroundPhotos)
+                
+                backgroundPhotos.alpha = 1
+                closeButton.alpha = 1
+                photosFullScreen.alpha = 1
+                
+                closeButton.frame = CGRect(
+                    x: backgroundPhotos.bounds.maxX - 32,
+                    y: backgroundPhotos.bounds.minY + 16,
+                    width: closeButton.frame.width,
+                    height: closeButton.frame.height)
+                
+                backgroundPhotos.addSubview(photosFullScreen)
+                backgroundPhotos.addSubview(closeButton)
+                
+                photosFullScreen.center = backgroundPhotos.center
+                photosFullScreen.transform = CGAffineTransform(scaleX: 2, y: 2)
+                photosFullScreen.contentMode = .scaleAspectFill
+                photosFullScreen.layer.masksToBounds = false
+                photosFullScreen.layer.cornerRadius = 0
+                photosFullScreen.layer.borderWidth = 0
+            }
+        } completion: { _ in
+            UIView.animateKeyframes(withDuration: 0.3, delay: 0.5, options: []) { [self] in
+                closeButton.tintColor = #colorLiteral(red: 0.1176327839, green: 0.1176561788, blue: 0.117627643, alpha: 1).withAlphaComponent(0.6)
+            }
         }
     }
-
-    @objc func dissMissfullscreenImage(sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.5) { [self] in
-            closeButton.isHidden = true
-            sender.view?.removeFromSuperview()
+    
+    @objc private func closedButton() {
+        UIView.animate(withDuration: 0.5, animations: { [self] in
+            backgroundPhotos.alpha = 0.0
+            closeButton.alpha = 0.0
+            photosFullScreen.alpha = 0.0
+                       }) { [self] _ in
+            backgroundPhotos.removeFromSuperview()
+            closeButton.removeFromSuperview()
+        photosFullScreen.removeFromSuperview()
         }
     }
 }
