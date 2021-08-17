@@ -20,11 +20,11 @@ class ProfileHeaderView: UIView {
     }()
     
     var nameLabel: UILabel = {
-       let name = UILabel()
-       name.text = "Snake Eyes"
-       name.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-       name.tintColor = .black
-       return name
+       let label = UILabel()
+       label.text = "Snake Eyes"
+       label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+       label.tintColor = .black
+       return label
     }()
     
     var statusField: UITextField = {
