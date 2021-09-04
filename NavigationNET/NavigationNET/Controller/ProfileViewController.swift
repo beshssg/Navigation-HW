@@ -43,9 +43,12 @@ class ProfileViewController: UIViewController {
     // MARK: - Lifecycle:
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .white
         
+        #if DEBUG
+        view.backgroundColor = .red
+        #else
+        view.backgroundColor = .white
+        #endif
         profileViewSetup()
         animatedAvatar()
     }
