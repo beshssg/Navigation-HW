@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 struct PostModel {
     var author: String

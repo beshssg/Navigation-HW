@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UIView {
     
@@ -13,7 +14,7 @@ class ProfileHeaderView: UIView {
     var imageAvatar: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "10"))
         imageView.layer.borderWidth = 6
-        imageView.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        imageView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 90
         return imageView
@@ -85,30 +86,36 @@ class ProfileHeaderView: UIView {
         [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { addSubview($0) }
         [imageAvatar, nameLabel, statusField, statusShowText, pressButton].forEach { mask in mask.translatesAutoresizingMaskIntoConstraints = false }
         
-        let constraints = [
-            imageAvatar.heightAnchor.constraint(equalToConstant: 180),
-            imageAvatar.widthAnchor.constraint(equalToConstant: 180),
-            imageAvatar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: SetupConstraints.indent),
-            imageAvatar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
-            
-            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            nameLabel.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                         
-            statusField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 100),
-            statusField.leadingAnchor.constraint(equalTo: imageAvatar.leadingAnchor, constant: 192),
-            statusField.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                         
-            statusShowText.topAnchor.constraint(equalTo: statusField.topAnchor, constant: 30),
-            statusShowText.leadingAnchor.constraint(equalTo: imageAvatar.safeAreaLayoutGuide.leadingAnchor, constant: 192),
-            statusShowText.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
-            statusShowText.heightAnchor.constraint(equalToConstant: 40),
-                                         
-            pressButton.topAnchor.constraint(equalTo: statusShowText.topAnchor, constant: 54),
-            pressButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
-            pressButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
-            pressButton.heightAnchor.constraint(equalToConstant: SetupConstraints.height),
-        ]
-        NSLayoutConstraint.activate(constraints)
+        imageAvatar.snp.makeConstraints { make in
+            make.height.width.equalTo(180)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(SetupConstraints.indent)
+            make.leading.equalToSuperview().inset(SetupConstraints.indent)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(27)
+            make.leading.equalTo(imageAvatar.snp.leading).inset(192)
+            make.trailing.equalTo(snp.trailing)
+        }
+        
+        statusField.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.top).inset(100)
+            make.leading.equalTo(imageAvatar.snp.leading).inset(192)
+            make.trailing.equalTo(snp.trailing)
+        }
+        
+        statusShowText.snp.makeConstraints { make in
+            make.top.equalTo(statusField.snp.top).inset(30)
+            make.leading.equalTo(imageAvatar.safeAreaLayoutGuide.snp.leading).inset(192)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(SetupConstraints.indent)
+            make.height.equalTo(40)
+        }
+        
+        pressButton.snp.makeConstraints { make in
+            make.top.equalTo(statusShowText.snp.top).inset(54)
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).inset(SetupConstraints.indent)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(SetupConstraints.indent)
+            make.height.equalTo(50)
+        }
     }
 }
