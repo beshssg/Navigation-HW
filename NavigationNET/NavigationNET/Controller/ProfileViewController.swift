@@ -12,6 +12,9 @@ class ProfileViewController: UIViewController {
     // MARK: - UIProperties:
     private let profileHeaderView = ProfileHeaderView()
     
+    private let userService: UserService
+    private let userNames: String
+    
     private let postTableView = UITableView(frame: .zero, style: .plain)
     
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
@@ -44,18 +47,24 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        #if DEBUG
-        view.backgroundColor = .red
-        #else
-        view.backgroundColor = .white
-        #endif
         profileViewSetup()
+        testBackground()
         animatedAvatar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    init(userService: UserService, userNames: String) {
+            self.userService = userService
+            self.userNames = userNames
+            super.init(nibName: nil, bundle: nil)
+        }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Methods:
@@ -94,6 +103,14 @@ class ProfileViewController: UIViewController {
         ]
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func testBackground() {
+        #if DEBUG
+        view.backgroundColor = .red
+        #else
+        view.backgroundColor = .white
+        #endif
     }
     
     // MARK: - Animation methods:
