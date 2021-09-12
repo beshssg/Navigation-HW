@@ -137,9 +137,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func buttonTapped() {
-        #if DEBUG
-        if let enteredNamed = emailField.text, (testUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: testUser, enteredUserName: enteredNamed)
+        #if RELEASE
+        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
+            let pvc = ProfileViewController(userService: currentUser, userNames: enteredNamed)
             navigationController?.pushViewController(pvc, animated: true)
             print("Correct login")
         } else {
