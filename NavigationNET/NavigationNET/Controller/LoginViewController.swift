@@ -15,12 +15,15 @@ class LoginViewController: UIViewController {
     private let currentUser = CurrentUser()
     private let testUser = TestUserService()
     
+    var delegate: LoginFactory?
+    private lazy var inspector: LoginInspector = delegate!.inspector()
+    
     private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
         return logo
     }()
     
-    private lazy var emailText: UITextField = {
+    lazy var emailText: UITextField = {
         let text = UITextField()
         text.placeholder = "Email or phone"
         text.indentText(size: 10)
@@ -35,7 +38,7 @@ class LoginViewController: UIViewController {
         return text
    }()
     
-    private lazy var passwordText: UITextField = {
+    lazy var passwordText: UITextField = {
         let text = UITextField()
         text.placeholder = "Password"
         text.isSecureTextEntry = true
@@ -137,9 +140,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func buttonTapped() {
-        #if DEBUG
-        if let enteredNamed = emailField.text, (testUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: testUser, enteredUserName: enteredNamed)
+        #if RELEASE
+        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
+            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
             navigationController?.pushViewController(pvc, animated: true)
             print("Correct login")
         } else {

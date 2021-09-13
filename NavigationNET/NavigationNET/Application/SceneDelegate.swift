@@ -19,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = TabBarController()
         window.makeKeyAndVisible()
         self.window = window
+        if let loginController = TabBarController().viewControllers?.first as? LoginViewController {
+            loginController.delegate = MyLoginFactory()
+        }
     }
-
 }
 
