@@ -70,7 +70,7 @@ class ProfileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         autoLayout()
-        
+        testName()
     }
     
     required init?(coder: NSCoder) {
@@ -117,5 +117,13 @@ class ProfileHeaderView: UIView {
             make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(SetupConstraints.indent)
             make.height.equalTo(50)
         }
+    }
+    
+    func testName() {
+        #if DEBUG
+        nameLabel.text = "Snake Eyes"
+        #else
+        nameLabel.text = "Test Snake Eyes"
+        #endif
     }
 }
