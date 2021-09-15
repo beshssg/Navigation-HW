@@ -94,20 +94,19 @@ class ProfileHeaderView: UIView {
         
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).inset(27)
-            make.leading.equalTo(imageAvatar.snp.leading).inset(192)
+            make.leading.equalTo(imageAvatar.snp.trailing).offset(12)
             make.trailing.equalTo(snp.trailing)
         }
         
         statusField.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.top).inset(100)
-            make.leading.equalTo(imageAvatar.snp.leading).inset(192)
-            make.trailing.equalTo(snp.trailing)
+            make.leading.equalTo(nameLabel.snp.leading)
+            make.bottom.equalTo(-24)
         }
         
         statusShowText.snp.makeConstraints { make in
             make.top.equalTo(statusField.snp.top).inset(30)
-            make.leading.equalTo(imageAvatar.safeAreaLayoutGuide.snp.leading).inset(192)
-            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).inset(SetupConstraints.indent)
+            make.leading.equalTo(statusField.snp.leading)
+            make.trailing.equalTo(-12)
             make.height.equalTo(40)
         }
         

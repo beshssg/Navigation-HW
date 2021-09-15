@@ -11,8 +11,6 @@ import iOSIntPackage
 class PostTableViewCell: UITableViewCell {
     
     // MARK: - UIProperties:
-    let imageProcessor = ImageProcessor()
-    
     var postModel: PostModel? {
         didSet {
             authorLabel.text = postModel?.author
@@ -21,7 +19,7 @@ class PostTableViewCell: UITableViewCell {
             likesLabel.text = "Likes: \(String(postModel!.likes))"
             viewsLabel.text = "Views: \(String(postModel!.views))"
         
-            imageProcessor.processImage(sourceImage: imagePost.image!, filter: .chrome, completion: { resultImage in imagePost.image = resultImage })
+            ImageProcessor().processImage(sourceImage: imagePost.image!, filter: .chrome, completion: { resultImage in imagePost.image = resultImage })
         }
     }
     
