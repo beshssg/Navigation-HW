@@ -50,6 +50,12 @@ class ProfileViewController: UIViewController {
         profileViewSetup()
         testBackground()
         animatedAvatar()
+        
+        #if RELEASE
+        profileHeaderView.usersData = userService as? CurrentUser
+        #else
+        profileHeaderView.usersDataTest = userService as? TestUserService
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,9 +64,9 @@ class ProfileViewController: UIViewController {
     }
     
     init(userService: UserService, userNames: String) {
-            self.userService = userService
-            self.userNames = userNames
-            super.init(nibName: nil, bundle: nil)
+        self.userService = userService
+        self.userNames = userNames
+        super.init(nibName: nil, bundle: nil)
         }
     
     required init?(coder: NSCoder) {
@@ -106,10 +112,10 @@ class ProfileViewController: UIViewController {
     }
     
     func testBackground() {
-        #if DEBUG
-        view.backgroundColor = .red
-        #else
+        #if RELEASE
         view.backgroundColor = .white
+        #else
+        view.backgroundColor = .red
         #endif
     }
     
