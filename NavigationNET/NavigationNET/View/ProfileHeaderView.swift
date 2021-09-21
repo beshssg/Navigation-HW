@@ -11,6 +11,24 @@ import SnapKit
 class ProfileHeaderView: UIView {
     
     // MARK: - UIProperties:
+    #if RELEASE
+    public var usersData: CurrentUser? {
+        didSet {
+            imageAvatar.image = usersData?.user.avatar
+            nameLabel.text = usersData?.user.fullName
+            statusField.text = usersData?.user.status
+        }
+    }
+    #else
+    public var usersDataTest: TestUserService? {
+        didSet {
+            imageAvatar.image = usersDataTest?.user.avatar
+            nameLabel.text = usersDataTest?.user.fullName
+            statusField.text = usersDataTest?.user.status
+        }
+    }
+    #endif
+    
     var imageAvatar: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "10"))
         imageView.layer.borderWidth = 6
@@ -66,11 +84,11 @@ class ProfileHeaderView: UIView {
         return status
     }()
     
+    
     // MARK: - Lifecycle:
     override init(frame: CGRect) {
         super.init(frame: .zero)
         autoLayout()
-        
     }
     
     required init?(coder: NSCoder) {
