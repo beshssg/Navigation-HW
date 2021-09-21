@@ -33,6 +33,7 @@
 		8E9E6A3B26E0F972008C7B5C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6A3A26E0F972008C7B5C /* StorageService.swift */; };
 		8E9E6A9D26E5797E008C7B5C /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9E6A9C26E5797E008C7B5C /* iOSIntPackage */; };
 		8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6AB726EA3A27008C7B5C /* User.swift */; };
+		8EAED4D626FA04E0001C6E0D /* PhotoObservModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */; };
 		C1D5B125C2342D575B9E9DFC /* Pods_NavigationNET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE4B48F32D93D2A3FAC9377 /* Pods_NavigationNET.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		8E9E6A3A26E0F972008C7B5C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		8E9E6A5A26E12080008C7B5C /* NavigationNET copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NavigationNET copy-Info.plist"; path = "/Users/bechssg/Navigation-HW/NavigationNET/NavigationNET copy-Info.plist"; sourceTree = "<absolute>"; };
 		8E9E6AB726EA3A27008C7B5C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObservModel.swift; sourceTree = "<group>"; };
 		E3135CC49D0AD0406D8BD92A /* Pods-NavigationNET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationNET.release.xcconfig"; path = "Target Support Files/Pods-NavigationNET/Pods-NavigationNET.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 				8E9E69FF26DBB027008C7B5C /* PostModel.swift */,
 				8E9E6A0326DBB06F008C7B5C /* SetupConstraints.swift */,
 				8E9E6AB726EA3A27008C7B5C /* User.swift */,
+				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				8E9E6A0626DBB0F0008C7B5C /* PhotosCollectionViewCell.swift in Sources */,
 				8E9E69FA26DBAF6A008C7B5C /* LoginViewController.swift in Sources */,
 				8E9E6A0C26DBB19C008C7B5C /* ProfileHeaderView.swift in Sources */,
+				8EAED4D626FA04E0001C6E0D /* PhotoObservModel.swift in Sources */,
 				8E9E6A0A26DBB165008C7B5C /* PostTableViewCell.swift in Sources */,
 				8E9E6A0E26DBB1C1008C7B5C /* ExtensionUITextFiled.swift in Sources */,
 				8E9E69F426DBADF9008C7B5C /* FeedViewController.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class ProfileViewController: UIViewController {
     
@@ -193,8 +194,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     case 0:
                         let tb = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotosTableViewCell.self), for: indexPath) as! PhotosTableViewCell
                         tb.goGalleryClosure = {
-                            let pvc = PhotosViewController()
-                            self.navigationController?.pushViewController(pvc, animated: true)
+                            var imageArray: [UIImage] = []
+                            
+                            PhotoObservModel.photoModelObserver.forEach { photo in imageArray.append(photo!) }
+                            
+                            let photoVC = PhotosViewController()
+                            photoVC.imagePublisherFacade = ImagePublisherFacade()
+                            photoVC.imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: 30, userImages: imageArray)
+                            self.navigationController?.pushViewController(photoVC, animated: true)
                         }
                         return tb
                     default:
