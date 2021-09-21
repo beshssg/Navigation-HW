@@ -12,8 +12,8 @@ class ProfileViewController: UIViewController {
     // MARK: - UIProperties:
     private let profileHeaderView = ProfileHeaderView()
     
-    private let userService: UserService
-    private let userNames: String
+//    private let userService: UserService
+//    private let userNames: String
     
     private let postTableView = UITableView(frame: .zero, style: .plain)
     
@@ -57,15 +57,15 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-    init(userService: UserService, userNames: String) {
-            self.userService = userService
-            self.userNames = userNames
-            super.init(nibName: nil, bundle: nil)
-        }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(userService: UserService, userNames: String) {
+//            self.userService = userService
+//            self.userNames = userNames
+//            super.init(nibName: nil, bundle: nil)
+//        }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     // MARK: - Methods:
     func profileViewSetup() {

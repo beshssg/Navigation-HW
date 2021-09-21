@@ -8,7 +8,7 @@
 import UIKit
 
 class MyLoginFactory: LoginFactory {
-    func inspector() -> LoginInspector {
-        LoginInspector()
+    func createInspector() -> LoginViewControllerDelegate {
+        return LoginInspector()
     }
 }

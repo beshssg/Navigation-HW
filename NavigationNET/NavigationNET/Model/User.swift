@@ -25,7 +25,7 @@ protocol UserService {
 }
 
 class CurrentUser: UserService {
-    let user = User(fullName: "SnakeEyes", avatar: UIImage(named: "marvel")!, status: "Snake")
+    let user = User(fullName: "SnakeEyes", avatar: UIImage(named: "3")!, status: "asd")
     
     func userService(userName: String) -> User? {
         if userName == user.fullName {
@@ -37,7 +37,7 @@ class CurrentUser: UserService {
 }
 
 class TestUserService: UserService {
-    let user = User(fullName: "TestSnakeEyes", avatar: UIImage(named: "mem")!, status: "TestSnake")
+    let user = User(fullName: "TestSnakeEyes", avatar: UIImage(named: "5")!, status: "asd")
     
     func userService(userName: String) -> User? {
         if userName == user.fullName {

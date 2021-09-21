@@ -15,8 +15,7 @@ class LoginViewController: UIViewController {
     private let currentUser = CurrentUser()
     private let testUser = TestUserService()
     
-    var delegate: LoginFactory?
-    private lazy var inspector: LoginInspector = delegate!.inspector()
+    var delegate: LoginViewControllerDelegate?
     
     private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
@@ -141,20 +140,30 @@ class LoginViewController: UIViewController {
     
     @objc private func buttonTapped() {
         #if RELEASE
-        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
-            navigationController?.pushViewController(pvc, animated: true)
-            print("Correct login")
-        } else {
-            print("Wrong login")
+        let loginText = emailText.text ?? ""
+        let passwordText = passwordText.text ?? ""
+        
+        guard (delegate?.checkerLogin(login: loginText, password: passwordText)) != nil else {
+                let pvc = ProfileViewController()
+                navigationController?.pushViewController(pvc, animated: true)
+                print("Correct login")
+            return
         }
+//        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
+//            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
+//            navigationController?.pushViewController(pvc, animated: true)
+//            print("Correct login")
+//        } else {
+//            print("Wrong login")
         #else
-        if let enteredNamed = emailText.text, (currentUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: currentUser, userNames: enteredNamed)
-            navigationController?.pushViewController(pvc, animated: true)
-            print("Correct login")
-        } else {
-            print("Wrong login")
+        let loginText = emailText.text ?? ""
+        let passwordText = passwordText.text ?? ""
+        
+        guard (delegate?.checkerLogin(login: loginText, password: passwordText)) != nil else {
+                let pvc = ProfileViewController()
+                navigationController?.pushViewController(pvc, animated: true)
+                print("Correct login")
+            return
         }
         #endif
     }

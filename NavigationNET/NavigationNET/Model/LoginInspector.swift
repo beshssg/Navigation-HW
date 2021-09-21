@@ -7,11 +7,8 @@
 
 import UIKit
 
-class LoginInspector {
-    func checkLogin(controller: LoginViewController) -> Bool {
-        guard controller.emailText.text?.hash == Checker.checker.login &&
-              controller.passwordText.text?.hash == Checker.checker.password else { return false }
-        return true
+class LoginInspector: LoginViewControllerDelegate {
+    func checkerLogin(login: String, password: String) -> Bool {
+        return Checker.shared.isLoginAndPasswordCorrect(login: login, password: password)
     }
 }
-
