@@ -15,12 +15,14 @@ class LoginViewController: UIViewController {
     private let currentUser = CurrentUser()
     private let testUser = TestUserService()
     
+    var delegate: LoginViewControllerDelegate?
+    
     private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
         return logo
     }()
     
-    private lazy var emailText: UITextField = {
+    lazy var emailText: UITextField = {
         let text = UITextField()
         text.placeholder = "Email or phone"
         text.indentText(size: 10)
@@ -35,7 +37,7 @@ class LoginViewController: UIViewController {
         return text
    }()
     
-    private lazy var passwordText: UITextField = {
+    lazy var passwordText: UITextField = {
         let text = UITextField()
         text.placeholder = "Password"
         text.isSecureTextEntry = true
@@ -138,20 +140,48 @@ class LoginViewController: UIViewController {
     
     @objc private func buttonTapped() {
         #if RELEASE
+<<<<<<< HEAD
         if let enteredNamed = emailText.text, (currentUser.userService(userName: enteredNamed) != nil) {
             let pvc = ProfileViewController(userService: currentUser, userNames: enteredNamed)
             navigationController?.pushViewController(pvc, animated: true)
             print("Correct login")
         } else {
             print("Wrong login")
+=======
+        let loginText = emailText.text ?? ""
+        let passwordText = passwordText.text ?? ""
+        
+        guard (delegate?.checkerLogin(login: loginText, password: passwordText)) != nil else {
+                let pvc = ProfileViewController()
+                navigationController?.pushViewController(pvc, animated: true)
+                print("Correct login")
+            return
+>>>>>>> hwSingleton
         }
+//        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
+//            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
+//            navigationController?.pushViewController(pvc, animated: true)
+//            print("Correct login")
+//        } else {
+//            print("Wrong login")
         #else
+<<<<<<< HEAD
         if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
             let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
             navigationController?.pushViewController(pvc, animated: true)
             print("Correct login")
         } else {
             print("Wrong login")
+=======
+        let loginText = emailText.text ?? ""
+        let passwordText = passwordText.text ?? ""
+        
+        guard (delegate?.checkerLogin(login: loginText, password: passwordText)) != nil else {
+                let pvc = ProfileViewController()
+                navigationController?.pushViewController(pvc, animated: true)
+                print("Correct login")
+            return
+>>>>>>> hwSingleton
         }
         #endif
     }

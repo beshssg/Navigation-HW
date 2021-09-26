@@ -25,7 +25,11 @@ protocol UserService {
 }
 
 class CurrentUser: UserService {
+<<<<<<< HEAD
     let user = User(fullName: "Snake Eyes", avatar: UIImage(named: "17")!, status: "Snake")
+=======
+    let user = User(fullName: "SnakeEyes", avatar: UIImage(named: "3")!, status: "asd")
+>>>>>>> hwSingleton
     
     func userService(userName: String) -> User? {
         if userName == user.fullName {
@@ -37,7 +41,11 @@ class CurrentUser: UserService {
 }
 
 class TestUserService: UserService {
+<<<<<<< HEAD
     let user = User(fullName: "Test Snake Eyes", avatar: UIImage(named: "13")!, status: "Test Snake")
+=======
+    let user = User(fullName: "TestSnakeEyes", avatar: UIImage(named: "5")!, status: "asd")
+>>>>>>> hwSingleton
     
     func userService(userName: String) -> User? {
         if userName == user.fullName {
