@@ -140,14 +140,6 @@ class LoginViewController: UIViewController {
     
     @objc private func buttonTapped() {
         #if RELEASE
-<<<<<<< HEAD
-        if let enteredNamed = emailText.text, (currentUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: currentUser, userNames: enteredNamed)
-            navigationController?.pushViewController(pvc, animated: true)
-            print("Correct login")
-        } else {
-            print("Wrong login")
-=======
         let loginText = emailText.text ?? ""
         let passwordText = passwordText.text ?? ""
         
@@ -156,7 +148,6 @@ class LoginViewController: UIViewController {
                 navigationController?.pushViewController(pvc, animated: true)
                 print("Correct login")
             return
->>>>>>> hwSingleton
         }
 //        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
 //            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
@@ -165,14 +156,6 @@ class LoginViewController: UIViewController {
 //        } else {
 //            print("Wrong login")
         #else
-<<<<<<< HEAD
-        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
-            navigationController?.pushViewController(pvc, animated: true)
-            print("Correct login")
-        } else {
-            print("Wrong login")
-=======
         let loginText = emailText.text ?? ""
         let passwordText = passwordText.text ?? ""
         
@@ -181,7 +164,6 @@ class LoginViewController: UIViewController {
                 navigationController?.pushViewController(pvc, animated: true)
                 print("Correct login")
             return
->>>>>>> hwSingleton
         }
         #endif
     }

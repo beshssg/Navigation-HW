@@ -12,9 +12,6 @@ class ProfileViewController: UIViewController {
     // MARK: - UIProperties:
     private let profileHeaderView = ProfileHeaderView()
     
-//    private let userService: UserService
-//    private let userNames: String
-    
     private let postTableView = UITableView(frame: .zero, style: .plain)
     
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
@@ -50,12 +47,6 @@ class ProfileViewController: UIViewController {
         profileViewSetup()
         testBackground()
         animatedAvatar()
-        
-        #if RELEASE
-        profileHeaderView.usersData = userService as? CurrentUser
-        #else
-        profileHeaderView.usersDataTest = userService as? TestUserService
-        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,17 +54,9 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-<<<<<<< HEAD
-    init(userService: UserService, userNames: String) {
-        self.userService = userService
-        self.userNames = userNames
-        super.init(nibName: nil, bundle: nil)
-        }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-=======
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 //    init(userService: UserService, userNames: String) {
 //            self.userService = userService
 //            self.userNames = userNames
@@ -83,7 +66,6 @@ class ProfileViewController: UIViewController {
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
->>>>>>> hwSingleton
     
     // MARK: - Methods:
     func profileViewSetup() {
