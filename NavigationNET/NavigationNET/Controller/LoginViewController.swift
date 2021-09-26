@@ -51,14 +51,12 @@ class LoginViewController: UIViewController {
         return text
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
+    private lazy var loginButton: CustomButton = { [weak self] in 
+        let button = CustomButton(title: "Log In", color: .clear, target: buttonTapped)
         button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel"), for: .normal)
-        button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -138,8 +136,8 @@ class LoginViewController: UIViewController {
     
     @objc private func buttonTapped() {
         #if DEBUG
-        if let enteredNamed = emailField.text, (testUser.userService(userName: enteredNamed) != nil) {
-            let pvc = ProfileViewController(userService: testUser, enteredUserName: enteredNamed)
+        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
+            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
             navigationController?.pushViewController(pvc, animated: true)
             print("Correct login")
         } else {

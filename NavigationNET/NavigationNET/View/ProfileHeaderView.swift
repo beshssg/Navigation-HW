@@ -20,7 +20,7 @@ class ProfileHeaderView: UIView {
         return imageView
     }()
     
-    var nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
        let label = UILabel()
        label.text = "Snake Eyes"
        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -28,7 +28,7 @@ class ProfileHeaderView: UIView {
        return label
     }()
     
-    var statusField: UITextField = {
+    private lazy var statusField: UITextField = {
         let status = UITextField()
         status.placeholder = "Waiting for something..."
         status.font = UIFont.systemFont(ofSize: 18.5, weight: .regular)
@@ -37,23 +37,18 @@ class ProfileHeaderView: UIView {
         return status
     }()
     
-    var pressButton: UIButton = {
-       let button = UIButton()
-       button.addTarget(self, action: #selector(statusTextChanged), for: .touchUpInside)
-       button.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-       button.setTitle("Set status", for: .normal)
-       button.setTitleColor(.white, for: .normal)
-       button.backgroundColor = #colorLiteral(red: 0, green: 0.4780977368, blue: 0.9984350801, alpha: 1)
-       button.layer.cornerRadius = 14
-       button.layer.shadowOffset.width = 4
-       button.layer.shadowOffset.height = 4
-       button.layer.shadowRadius = 4
-       button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-       button.layer.shadowOpacity = 0.7
-       return button
+    private lazy var pressButton: CustomButton = { [weak self] in
+        let button = CustomButton(title: "Set status", color: #colorLiteral(red: 0, green: 0.4780977368, blue: 0.9984350801, alpha: 1), target: statusTextChanged)
+        button.layer.cornerRadius = 14
+        button.layer.shadowOffset.width = 4
+        button.layer.shadowOffset.height = 4
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        button.layer.shadowOpacity = 0.7
+        return button
     }()
     
-    var statusShowText: UITextField = {
+    private lazy var statusShowText: UITextField = {
         let status = UITextField()
         status.indentText(size: 10)
         status.placeholder = "Status..."
@@ -80,6 +75,7 @@ class ProfileHeaderView: UIView {
     // MARK: - Methods:
     @objc func statusTextChanged() {
         statusField.text = statusShowText.text
+        statusField.sizeToFit()
     }
     
     func autoLayout() {
