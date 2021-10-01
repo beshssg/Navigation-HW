@@ -16,7 +16,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private var imageGallery: UIImageView = {
+    var imageGallery: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 6
         image.clipsToBounds = true
@@ -39,11 +39,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         [imageGallery].forEach { mask in mask.translatesAutoresizingMaskIntoConstraints = false }
         
         let constraints = [
-            contentView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
             imageGallery.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageGallery.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageGallery.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

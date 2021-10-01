@@ -53,14 +53,12 @@ class LoginViewController: UIViewController {
         return text
     }()
     
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
+    private lazy var loginButton: CustomButton = { [weak self] in 
+        let button = CustomButton(title: "Log In", color: .clear, target: buttonTapped)
         button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel"), for: .normal)
-        button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
     
