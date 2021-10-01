@@ -17,15 +17,15 @@ class TabBarController: UITabBarController {
         let tabBar = UITabBarItem()
         tabBar.image = UIImage(systemName: "tray.full.fill")
         tabBar.title = "Feed"
-        tabBar.standardAppearance?.selectionIndicatorTintColor = .white
+        tabBar.standardAppearance?.selectionIndicatorTintColor = .blue
         return tabBar
     }()
     
     let loginBarItem: UITabBarItem = {
         let tabBar = UITabBarItem()
-        tabBar.image = UIImage(systemName: "person.crop.square.fill")
+        tabBar.image = UIImage(systemName: "person.crop.square")
         tabBar.title = "Profile"
-        tabBar.standardAppearance?.selectionIndicatorTintColor = .white
+        tabBar.standardAppearance?.selectionIndicatorTintColor = .blue
         return tabBar
     }()
     
@@ -43,11 +43,8 @@ class TabBarController: UITabBarController {
         
         let tabBarList = [feedViewController, loginViewController]
         
-        feedViewController.loadViewIfNeeded()
-        loginViewController.loadViewIfNeeded()
         viewControllers = tabBarList
-        tabBar.tintColor = .white
-        tabBar.barTintColor = .clear
-        tabBar.backgroundColor = .black
+        tabBar.tintColor = .black
     }
+
 }

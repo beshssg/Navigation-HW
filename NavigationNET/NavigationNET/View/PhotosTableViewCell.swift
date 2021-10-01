@@ -44,10 +44,11 @@ class PhotosTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var galleryButton: CustomButton = { [weak self] in 
-        let button = CustomButton(title: "", color: .clear, target: goToGalleryButton)
+    private lazy var galleryButton: UIButton = {
+        let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "arrow.right"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(goToGalleryButton), for: .touchUpInside)
         return button
     }()
     

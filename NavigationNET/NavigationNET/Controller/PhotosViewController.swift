@@ -6,14 +6,10 @@
 //
 
 import UIKit
-import iOSIntPackage
 
-class PhotosViewController: UIViewController, ImageLibrarySubscriber {
+class PhotosViewController: UIViewController {
     
     // MARK: - UIProperties:
-    var imagePublisherFacade = ImagePublisherFacade()
-    var receivedImages: [UIImage] = []
-    
     lazy var pcv: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -26,15 +22,9 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
     // MARK: - Lifecycle:
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupCV()
         navigationBarSetup()
-        imagePublisherFacade.subscribe(self)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        imagePublisherFacade.removeSubscription(for: self)
-        imagePublisherFacade.rechargeImageLibrary()
     }
     
     // MARK: - Methods:
@@ -54,11 +44,6 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
         NSLayoutConstraint.activate(constraints)
     }
     
-    func receive(images: [UIImage]) {
-        receivedImages = images
-        pcv.reloadData()
-    }
-    
     func navigationBarSetup() {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Photo Gallery"
@@ -66,20 +51,20 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
 }
 
      // MARK: - Delegate
-extension PhotosViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource  {
+extension PhotosViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return receivedImages.count
+        return Storage.galleryPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosCollectionViewCell.self),
                                                       for: indexPath) as! PhotosCollectionViewCell
-        cell.imageGallery.image = receivedImages[indexPath.row]
-        
+        cell.photosModel = Storage.galleryPhotos[indexPath.row]
         return cell
     }
     
