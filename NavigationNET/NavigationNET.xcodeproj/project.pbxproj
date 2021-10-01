@@ -35,11 +35,21 @@
 		8E9E6A3B26E0F972008C7B5C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6A3A26E0F972008C7B5C /* StorageService.swift */; };
 		8E9E6A9D26E5797E008C7B5C /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9E6A9C26E5797E008C7B5C /* iOSIntPackage */; };
 		8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6AB726EA3A27008C7B5C /* User.swift */; };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 		8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6AB926EE29FA008C7B5C /* Checker.swift */; };
 		8E9E6ABC26EE2AC8008C7B5C /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6ABB26EE2AC7008C7B5C /* LoginViewControllerDelegate.swift */; };
 		8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6ABF26EE304F008C7B5C /* LoginInspector.swift */; };
 		8E9E6AC226EF505F008C7B5C /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6AC126EF505F008C7B5C /* MyLoginFactory.swift */; };
+<<<<<<< HEAD
 		8EAED4D626FA04E0001C6E0D /* PhotoObservModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */; };
+=======
+=======
+		8EAED4D626FA04E0001C6E0D /* PhotoObservModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */; };
+>>>>>>> hwObserv
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 		C1D5B125C2342D575B9E9DFC /* Pods_NavigationNET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE4B48F32D93D2A3FAC9377 /* Pods_NavigationNET.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,11 +125,21 @@
 		8E9E6A3A26E0F972008C7B5C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		8E9E6A5A26E12080008C7B5C /* NavigationNET copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NavigationNET copy-Info.plist"; path = "/Users/bechssg/Navigation-HW/NavigationNET/NavigationNET copy-Info.plist"; sourceTree = "<absolute>"; };
 		8E9E6AB726EA3A27008C7B5C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 		8E9E6AB926EE29FA008C7B5C /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		8E9E6ABB26EE2AC7008C7B5C /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8E9E6ABF26EE304F008C7B5C /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		8E9E6AC126EF505F008C7B5C /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObservModel.swift; sourceTree = "<group>"; };
+=======
+=======
+		8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObservModel.swift; sourceTree = "<group>"; };
+>>>>>>> hwObserv
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 		E3135CC49D0AD0406D8BD92A /* Pods-NavigationNET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationNET.release.xcconfig"; path = "Target Support Files/Pods-NavigationNET/Pods-NavigationNET.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,13 +222,25 @@
 				8E9E69FF26DBB027008C7B5C /* PostModel.swift */,
 				8E9E6A0326DBB06F008C7B5C /* SetupConstraints.swift */,
 				8E9E6AB726EA3A27008C7B5C /* User.swift */,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 				8E9E6AB926EE29FA008C7B5C /* Checker.swift */,
 				8E9E6ABB26EE2AC7008C7B5C /* LoginViewControllerDelegate.swift */,
 				8E9E6ABF26EE304F008C7B5C /* LoginInspector.swift */,
 				8E9E6AC126EF505F008C7B5C /* MyLoginFactory.swift */,
+<<<<<<< HEAD
 				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
 				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
 				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
+=======
+=======
+				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
+				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
+				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
+>>>>>>> hwObserv
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,8 +520,16 @@
 				8E9E69FC26DBAF9B008C7B5C /* PhotosViewController.swift in Sources */,
 				8E96DE332700AFBC000F5C9E /* FeedModel.swift in Sources */,
 				8E9E69F626DBAE1E008C7B5C /* ProfileViewController.swift in Sources */,
+<<<<<<< HEAD
 				8E9E6AC226EF505F008C7B5C /* MyLoginFactory.swift in Sources */,
 				8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */,
+=======
+<<<<<<< HEAD
+				8E9E6AC226EF505F008C7B5C /* MyLoginFactory.swift in Sources */,
+=======
+				8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */,
+>>>>>>> hwObserv
+>>>>>>> 0d897c6c0b3816620a0fa2acc075b23498c9121d
 				8E9E6A0426DBB06F008C7B5C /* SetupConstraints.swift in Sources */,
 				8E9E69F826DBAF31008C7B5C /* PostViewController.swift in Sources */,
 				8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */,
