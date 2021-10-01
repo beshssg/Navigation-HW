@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class ProfileViewController: UIViewController {
     
@@ -16,8 +17,8 @@ class ProfileViewController: UIViewController {
     
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
     
-    private lazy var closeButton: UIButton = {
-        var button = UIButton()
+    private lazy var closeButton: CustomButton = { [weak self] in 
+        var button = CustomButton(title: "", color: .clear) { return }
         button.sizeToFit()
         button.setImage(UIImage(systemName: "multiply"), for: button.state)
         button.tintColor = #colorLiteral(red: 0.1176327839, green: 0.1176561788, blue: 0.117627643, alpha: 0.9985017123).withAlphaComponent(0)
@@ -193,8 +194,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     case 0:
                         let tb = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotosTableViewCell.self), for: indexPath) as! PhotosTableViewCell
                         tb.goGalleryClosure = {
-                            let pvc = PhotosViewController()
-                            self.navigationController?.pushViewController(pvc, animated: true)
+                            var imageArray: [UIImage] = []
+                            
+                            PhotoObservModel.photoModelObserver.forEach { photo in imageArray.append(photo!) }
+                            
+                            let photoVC = PhotosViewController()
+                            photoVC.imagePublisherFacade = ImagePublisherFacade()
+                            photoVC.imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: 30, userImages: imageArray)
+                            self.navigationController?.pushViewController(photoVC, animated: true)
                         }
                         return tb
                     default:
