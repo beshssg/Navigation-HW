@@ -40,6 +40,7 @@
 		8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6ABF26EE304F008C7B5C /* LoginInspector.swift */; };
 		8E9E6AC226EF505F008C7B5C /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E6AC126EF505F008C7B5C /* MyLoginFactory.swift */; };
 		8EAED4D626FA04E0001C6E0D /* PhotoObservModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */; };
+		8ED0AC1B270DAC3400476161 /* BruteForce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0AC1A270DAC3400476161 /* BruteForce.swift */; };
 		C1D5B125C2342D575B9E9DFC /* Pods_NavigationNET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE4B48F32D93D2A3FAC9377 /* Pods_NavigationNET.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		8E9E6ABF26EE304F008C7B5C /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		8E9E6AC126EF505F008C7B5C /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObservModel.swift; sourceTree = "<group>"; };
+		8ED0AC1A270DAC3400476161 /* BruteForce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForce.swift; sourceTree = "<group>"; };
 		E3135CC49D0AD0406D8BD92A /* Pods-NavigationNET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationNET.release.xcconfig"; path = "Target Support Files/Pods-NavigationNET/Pods-NavigationNET.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,9 +211,7 @@
 				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
 				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
 				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
-				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
-				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
-				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
+				8ED0AC1A270DAC3400476161 /* BruteForce.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,6 +495,7 @@
 				8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */,
 				8E9E6A0426DBB06F008C7B5C /* SetupConstraints.swift in Sources */,
 				8E9E69F826DBAF31008C7B5C /* PostViewController.swift in Sources */,
+				8ED0AC1B270DAC3400476161 /* BruteForce.swift in Sources */,
 				8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */,
 				8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */,
 				8E9E69F226DBADA7008C7B5C /* TabBarController.swift in Sources */,

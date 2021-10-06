@@ -8,13 +8,9 @@
 import UIKit
 
 protocol LoginViewControllerDelegate {
-    func checkerLogin(login : String, password : String) -> Bool
+    func checkerLogin(emailOrPhone: String, password: String) -> Bool
 }
 
 protocol LoginFactory {
     func createInspector() -> LoginViewControllerDelegate
 }
-
-
-
-
