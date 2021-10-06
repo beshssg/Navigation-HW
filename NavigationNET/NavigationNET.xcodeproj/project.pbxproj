@@ -209,6 +209,9 @@
 				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
 				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
 				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
+				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
+				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
+				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
