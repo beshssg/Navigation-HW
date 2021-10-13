@@ -20,4 +20,14 @@ final class ProfileCoordinator: NavigationCoordinator {
         let profileTabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "Profile"), selectedImage: nil)
         navigationController.tabBarItem = profileTabBarItem
     }
+    
+    func login() {
+        let profileViewController = ProfileViewController()
+        profileViewController.coordinator = self
+        navigationController.pushViewController(profileViewController, animated: true)
+    }
+    
+    func showPhotos() {
+        navigationController.pushViewController(PhotosViewController(), animated: true)
+    }
 }

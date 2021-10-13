@@ -10,6 +10,8 @@ import StorageService
 
 class PostViewController: UIViewController {
     
+    weak var coordinator: FeedCoordinator?
+    
     var post: Post?
 
     override func viewDidLoad() {
@@ -17,5 +19,4 @@ class PostViewController: UIViewController {
         
         title = post?.title
     }
-
 }

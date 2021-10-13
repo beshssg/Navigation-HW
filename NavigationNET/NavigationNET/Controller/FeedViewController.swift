@@ -14,6 +14,8 @@ class FeedViewController: UIViewController {
     let post: Post = Post(title: "Пост")
     let model = FeedViewControllerModel()
     
+    weak var coordinator: FeedCoordinator?
+    
     private let stackView: UIStackView = {
         let sv = UIStackView()
         sv.backgroundColor = .white
@@ -94,4 +96,9 @@ class FeedViewController: UIViewController {
     @objc private func didTapCheckButton() {
         model.check(word: textField.text!)
     }
+    
+    @objc private func postButtonTapped(_ sender: PostButton) {
+            guard let index = sender.index else { return }
+            coordinator?.showPost(number: index)
+        }
 }

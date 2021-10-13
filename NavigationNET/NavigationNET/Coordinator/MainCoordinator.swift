@@ -29,6 +29,8 @@ final class MainCoordinator {
         let feedViewController = FeedViewController()
         let feedNavigationController = UINavigationController(rootViewController: feedViewController)
         let feedCoordinator = FeedCoordinator(navigationController: feedNavigationController)
+        feedViewController.coordinator = feedCoordinator
+        feedViewController.title = "Feed"
         childCoordinators.append(feedCoordinator)
         
         let feedBarItem: UITabBarItem = {
