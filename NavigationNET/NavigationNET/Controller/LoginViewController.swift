@@ -10,10 +10,9 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - UIProperties:
-    private let scrollView = UIScrollView()
+    weak var coordinator: ProfileCoordinator?
     
-    private let currentUser = CurrentUser()
-    private let testUser = TestUserService()
+    private let scrollView = UIScrollView()
     
     var delegate: LoginViewControllerDelegate?
     
@@ -137,33 +136,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func buttonTapped() {
-        #if RELEASE
-        let loginText = emailText.text ?? ""
-        let passwordText = passwordText.text ?? ""
-        
-        guard (delegate?.checkerLogin(login: loginText, password: passwordText)) != nil else {
-                let pvc = ProfileViewController()
-                navigationController?.pushViewController(pvc, animated: true)
-                print("Correct login")
-            return
-        }
-//        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
-//            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
-//            navigationController?.pushViewController(pvc, animated: true)
-//            print("Correct login")
-//        } else {
-//            print("Wrong login")
-        #else
-        let loginText = emailText.text ?? ""
-        let passwordText = passwordText.text ?? ""
-        
-        guard (delegate?.checkerLogin(login: loginText, password: passwordText)) != nil else {
-                let pvc = ProfileViewController()
-                navigationController?.pushViewController(pvc, animated: true)
-                print("Correct login")
-            return
-        }
-        #endif
+        coordinator?.login()
     }
 }
 

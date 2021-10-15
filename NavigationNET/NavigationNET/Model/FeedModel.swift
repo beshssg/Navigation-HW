@@ -2,19 +2,24 @@
 //  FeedModel.swift
 //  NavigationNET
 //
-//  Created by beshssg on 26.09.2021.
+//  Created by beshssg on 13.10.2021.
 //
 
-import Foundation
+import UIKit
 
-class FeedViewControllerModel {
-    private let password = "Snake"
-        
-    func check(word: String) {
-        if word == password {
-            NotificationCenter.default.post(name: NSNotification.Name("green"), object: nil)
-        } else {
-            NotificationCenter.default.post(name: NSNotification.Name("red"), object: nil)
-        }
+struct FeedModel {
+
+    static let shared: FeedModel = {
+        let instance = FeedModel()
+        return instance
+    }()
+
+    let posts: [PostDummy]
+
+    private init() {
+        posts = [
+            PostDummy(title: "Пост 1"),
+            PostDummy(title: "Пост 2")
+        ]
     }
 }

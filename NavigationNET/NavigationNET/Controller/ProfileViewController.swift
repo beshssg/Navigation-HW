@@ -11,6 +11,8 @@ import iOSIntPackage
 class ProfileViewController: UIViewController {
     
     // MARK: - UIProperties:
+    weak var coordinator: ProfileCoordinator?
+
     private let profileHeaderView = ProfileHeaderView()
     
     private let postTableView = UITableView(frame: .zero, style: .plain)
@@ -54,19 +56,6 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    init(userService: UserService, userNames: String) {
-//            self.userService = userService
-//            self.userNames = userNames
-//            super.init(nibName: nil, bundle: nil)
-//        }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     // MARK: - Methods:
     func profileViewSetup() {
@@ -201,7 +190,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                             let photoVC = PhotosViewController()
                             photoVC.imagePublisherFacade = ImagePublisherFacade()
                             photoVC.imagePublisherFacade.addImagesWithTimer(time: 0.5, repeat: 30, userImages: imageArray)
-                            self.navigationController?.pushViewController(photoVC, animated: true)
+                            self.coordinator?.showPhotos()
                         }
                         return tb
                     default:
