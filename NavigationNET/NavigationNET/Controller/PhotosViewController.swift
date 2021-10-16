@@ -12,7 +12,8 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
     
     // MARK: - UIProperties:
     var imagePublisherFacade = ImagePublisherFacade()
-    var receivedImages: [UIImage] = []
+    var imageViews = [UIImageView]()
+    var imageProcessor = ImageProcessor()
     
     lazy var pcv: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -55,13 +56,69 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
     }
     
     func receive(images: [UIImage]) {
-        receivedImages = images
-        pcv.reloadData()
+        imageViews.append(UIImageView(image: images[images.count - 1]))
+        pcv.reloadItems(at: [IndexPath(item: images.count - 1, section: 0)])
     }
     
     func navigationBarSetup() {
         navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Photo Gallery"
+    }
+    
+    func imageThread() {
+        var firstImages = [UIImage]()
+                let secondImages = [UIImage(named: "1")!, UIImage(named: "2")!]
+                let thirdImages = [UIImage(named: "3")!, UIImage(named: "4")!]
+                let fourthImages = [UIImage(named: "5")!, UIImage(named: "6")!]
+                let fifthImages = [UIImage(named: "7")!, UIImage(named: "8")!]
+
+                imageViews.forEach({firstImages.append($0.image!)})
+
+                imageProcessor.processImagesOnThread(sourceImages: firstImages, filter: .colorInvert,
+                                                     qos: .background) { images in
+                    for i in 0 ..< images.count {
+                        DispatchQueue.main.async {
+                            self.imageViews[i].image = UIImage(cgImage: images[i]!)
+                        }
+                    }
+
+                } // 616
+                
+        imageProcessor.processImagesOnThread(sourceImages: secondImages, filter: .noir,
+                                                     qos: .default) { images in
+                    for i in 0 ..< images.count {
+                        DispatchQueue.main.async {
+                            self.imageViews.append(UIImageView(image: UIImage(cgImage: images[i]!)))
+                        }
+                    }
+                } // 62
+                
+        imageProcessor.processImagesOnThread(sourceImages: thirdImages, filter: .chrome,
+                                                     qos: .userInitiated) { images in
+                    for i in 0 ..< images.count {
+                        DispatchQueue.main.async {
+                            self.imageViews.append(UIImageView(image: UIImage(cgImage: images[i]!)))
+                        }
+                    }
+                } // 36
+                
+        imageProcessor.processImagesOnThread(sourceImages: fourthImages, filter: .fade,
+                                                     qos: .userInteractive) { images in
+                    for i in 0 ..< images.count {
+                        DispatchQueue.main.async {
+                            self.imageViews.append(UIImageView(image: UIImage(cgImage: images[i]!)))
+                        }
+                    }
+                } // 43
+                
+        imageProcessor.processImagesOnThread(sourceImages: fifthImages, filter: .posterize,
+                                                     qos: .utility) { images in
+                    for i in 0 ..< images.count {
+                        DispatchQueue.main.async {
+                            self.imageViews.append(UIImageView(image: UIImage(cgImage: images[i]!)))
+                        }
+                    }
+                } // 1068
     }
 }
 
@@ -72,19 +129,24 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return receivedImages.count
+        return imageViews.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotosCollectionViewCell.self),
                                                       for: indexPath) as! PhotosCollectionViewCell
-        cell.imageGallery.image = receivedImages[indexPath.row]
         
+        guard imageViews.isEmpty == false else {
+            return cell
+        }
+        
+        cell.imageGallery = imageViews[indexPath.item]
         return cell
     }
+}
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 130, height: 130)
     }
 
-}
+
