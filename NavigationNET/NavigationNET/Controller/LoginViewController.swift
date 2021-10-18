@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     private let testUser = TestUserService()
     private let bruteForce = BruteForce()
     
-    var delegate: LoginViewControllerDelegate?
+    private var delegate: LoginViewControllerDelegate?
     
     private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
     
     private lazy var bruteForceButton: CustomButton = {
         let button = CustomButton(title: "Brute Force on", color: .systemGreen) { [weak self] in
-            self?.bruteForce(passwordToUnlock: "123")
+            self?.bruteForce(passwordToUnlock: "p")
         }
         button.tintColor = .white
         button.layer.cornerRadius = 10
@@ -168,20 +168,20 @@ class LoginViewController: UIViewController {
         
         activityIndicator.startAnimating()
         
-        DispatchQueue.global().async { [self] in
-            while delegate?.checkerLogin(emailOrPhone: "Snake Eyes", password: password) != true {
-                password = bruteForce.generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
+        DispatchQueue.global().async { [weak self] in
+            while self?.delegate?.checkerLogin(emailOrPhone: "Snake Eyes", password: password) != true {
+                password = self!.bruteForce.generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
                 
                 if password == passwordToUnlock {
                     DispatchQueue.main.async {
-                        activityIndicator.stopAnimating()
-                        passwordText.text = password
-                        passwordText.isSecureTextEntry = false
-                        }
+                        self?.activityIndicator.stopAnimating()
+                        self?.passwordText.text = password
+                        self?.passwordText.isSecureTextEntry = false
                     }
                 }
             }
         }
+    }
     
     @objc private func buttonTapped() {
         #if RELEASE
@@ -189,25 +189,21 @@ class LoginViewController: UIViewController {
         let passwordText = passwordText.text ?? ""
         
         guard (delegate?.checkerLogin(emailOrPhone: loginText, password: passwordText)) != nil else {
-                let pvc = ProfileViewController()
-                navigationController?.pushViewController(pvc, animated: true)
-                print("Correct login")
+            let pvc = ProfileViewController()
+            self.passwordText.isSecureTextEntry = true
+            navigationController?.pushViewController(pvc, animated: true)
+            print("Correct login")
             return
         }
-//        if let enteredNamed = emailText.text, (testUser.userService(userName: enteredNamed) != nil) {
-//            let pvc = ProfileViewController(userService: testUser, userNames: enteredNamed)
-//            navigationController?.pushViewController(pvc, animated: true)
-//            print("Correct login")
-//        } else {
-//            print("Wrong login")
         #else
         let loginText = emailText.text ?? ""
         let passwordText = passwordText.text ?? ""
         
         guard (delegate?.checkerLogin(emailOrPhone: loginText, password: passwordText)) != nil else {
-                let pvc = ProfileViewController()
-                navigationController?.pushViewController(pvc, animated: true)
-                print("Correct login")
+            let pvc = ProfileViewController()
+            self.passwordText.isSecureTextEntry = true
+            navigationController?.pushViewController(pvc, animated: true)
+            print("Correct login")
             return
         }
         #endif

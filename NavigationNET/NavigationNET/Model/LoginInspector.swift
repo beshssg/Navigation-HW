@@ -9,6 +9,6 @@ import UIKit
 
 class LoginInspector: LoginViewControllerDelegate {
     func checkerLogin(emailOrPhone: String, password: String) -> Bool {
-        return Checker.checker.check(emailOrPhone: emailOrPhone, password: password)
+        return Checker.shared.check(emailOrPhone: emailOrPhone, password: password)
     }
 }

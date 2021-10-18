@@ -8,10 +8,10 @@
 import UIKit
 
 class Checker {
-    static let checker = Checker()
+    static let shared = Checker()
     
     private(set) var login = "Snake Eyes".hash
-    private(set) var password = "123".hash
+    private(set) var password = "p".hash
     
     func check(emailOrPhone: String, password: String) -> Bool {
         if emailOrPhone.hash == login && password.hash == self.password {
