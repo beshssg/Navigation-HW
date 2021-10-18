@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
     
+    private let timerFooterView = ProfileTimerFooterView()
+    
     private lazy var closeButton: CustomButton = { [weak self] in 
         var button = CustomButton(title: "", color: .clear) { return }
         button.sizeToFit()
@@ -39,6 +41,15 @@ class ProfileViewController: UIViewController {
         return view
     }()
     
+    private var date: DateComponents? {
+        didSet {
+            if date!.second == -1 {
+                date!.minute! -= 1
+                date!.second = 59
+            }
+        }
+    }
+    
     private lazy var photosFullScreen = UIImageView(image: profileHeaderView.imageAvatar.image)
     
     // MARK: - Lifecycle:
@@ -54,19 +65,6 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    init(userService: UserService, userNames: String) {
-//            self.userService = userService
-//            self.userNames = userNames
-//            super.init(nibName: nil, bundle: nil)
-//        }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     // MARK: - Methods:
     func profileViewSetup() {
@@ -102,8 +100,9 @@ class ProfileViewController: UIViewController {
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ]
-        
         NSLayoutConstraint.activate(constraints)
+        
+        configureTimer()
     }
     
     func testBackground() {
@@ -112,6 +111,38 @@ class ProfileViewController: UIViewController {
         #else
         view.backgroundColor = .red
         #endif
+    }
+    
+    // MARK: - RunLoop timer:
+    func configureTimer() {
+        var dateComponents  = DateComponents()
+        
+        dateComponents.minute = 1
+        dateComponents.second = 30
+        
+        date = dateComponents
+        
+        let firstTimer = Timer(timeInterval: 90, repeats: true) { timer in
+            self.date!.minute = 1
+            self.date!.second = 30
+            
+            self.timerFooterView.timerLabel.text = "До обновления осталось: \(self.date!.minute!) минут \(self.date!.second!) секунд."
+            
+            let alertController = UIAlertController(title: "Страница была обновлена",
+                                                    message: nil,
+                                                    preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "ОК", style: .default)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        let secondTimer = Timer(timeInterval: 1, repeats: true) { [self] timer in
+            self.date!.second! -= 1
+            self.timerFooterView.timerLabel.text = "До обновления осталось: \(date!.minute!) минут \(date!.second!) секунд."
+        }
+        RunLoop.main.add(firstTimer, forMode: .common)
+        RunLoop.main.add(secondTimer, forMode: .common)
     }
     
     // MARK: - Animation methods:
@@ -220,5 +251,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         }
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        timerFooterView.timerLabel.text = "До обновления осталось: \(date!.minute!) минут \(date!.second!) секунд."
+        
+        return timerFooterView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        70
     }
 }

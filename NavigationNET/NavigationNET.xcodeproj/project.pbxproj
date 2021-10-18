@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */; };
 		8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE2C26FB7262000F5C9E /* CustomButton.swift */; };
 		8E96DE332700AFBC000F5C9E /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE322700AFBC000F5C9E /* FeedModel.swift */; };
 		8E9E69DE26DBAD22008C7B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E69DD26DBAD22008C7B5C /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		6DF27E4D86319A2229398E6A /* Pods-NavigationNET.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationNET.debug.xcconfig"; path = "Target Support Files/Pods-NavigationNET/Pods-NavigationNET.debug.xcconfig"; sourceTree = "<group>"; };
 		7AE4B48F32D93D2A3FAC9377 /* Pods_NavigationNET.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationNET.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTimerFooterView.swift; sourceTree = "<group>"; };
 		8E96DE2C26FB7262000F5C9E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8E96DE322700AFBC000F5C9E /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		8E9E69DA26DBAD22008C7B5C /* NavigationNET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationNET.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +222,7 @@
 				8E9E6A0726DBB12E008C7B5C /* PhotosTableViewCell.swift */,
 				8E9E6A0926DBB165008C7B5C /* PostTableViewCell.swift */,
 				8E9E6A0B26DBB19C008C7B5C /* ProfileHeaderView.swift */,
+				8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */,
 				8E9E69F226DBADA7008C7B5C /* TabBarController.swift in Sources */,
 				8E9E6A0626DBB0F0008C7B5C /* PhotosCollectionViewCell.swift in Sources */,
+				8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */,
 				8E9E69FA26DBAF6A008C7B5C /* LoginViewController.swift in Sources */,
 				8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */,
 				8E9E6A0C26DBB19C008C7B5C /* ProfileHeaderView.swift in Sources */,
