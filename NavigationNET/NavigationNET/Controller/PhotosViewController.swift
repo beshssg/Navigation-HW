@@ -74,13 +74,32 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
 
                 imageViews.forEach({firstImages.append($0.image!)})
 
-                imageProcessor.processImagesOnThread(sourceImages: firstImages, filter: .colorInvert,
-                                                     qos: .background) { images in
-                    for i in 0 ..< images.count {
-                        DispatchQueue.main.async {
-                            self.imageViews[i].image = UIImage(cgImage: images[i]!)
+                imageProcessor.processImagesOnThread(sourceImages: firstImages,
+                                                     filter: .colorInvert,
+                                                     qos: .background) { [weak self] images in
+                    self?.notFoundImage(imageFound: Bool.random(), completion: { result in
+                        switch result {
+                        case .success(true):
+                            for i in 0 ..< images.count {
+                                DispatchQueue.main.async {
+                                    self?.imageViews[i].image = UIImage(cgImage: images[i]!)
+                                }
+                            }
+                        default:
+                            let alertController = UIAlertController(title: "Not Found",
+                                                                    message: nil,
+                                                                    preferredStyle: .alert)
+                            
+                            let cancelAction = UIAlertAction(title: "ОК", style: .default)
+                            alertController.addAction(cancelAction)
+                            
+                            DispatchQueue.main.async {
+                                self?.present(alertController, animated: true)
+                            }
+
                         }
-                    }
+                    })
+                   
 
                 } // 616
                 
@@ -119,6 +138,14 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
                         }
                     }
                 } // 1068
+    }
+    
+    private func notFoundImage(imageFound: Bool, completion: @escaping ((Result<Bool, AppError>) -> Void)) {
+        if imageFound {
+            completion(.success(imageFound))
+        } else {
+            completion(.failure(.imageNotFound))
+        }
     }
 }
 

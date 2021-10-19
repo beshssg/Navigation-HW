@@ -52,8 +52,20 @@ class LoginViewController: UIViewController {
         return text
     }()
     
-    private lazy var loginButton: CustomButton = { [weak self] in 
-        let button = CustomButton(title: "Log In", color: .clear, target: buttonTapped)
+    private lazy var loginButton: CustomButton = { [weak self] in
+        let button = CustomButton(title: "Log In", color: .clear, target: { [weak self] in
+            do {
+                try self?.buttonTapped()
+            } catch {
+                let alertController = UIAlertController(title: "Неправильно введен логин или пароль",
+                                                        message: "Попробуйте ввести заново",
+                                                        preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "ОК", style: .default)
+                alertController.addAction(cancelAction)
+                self?.present(alertController, animated: true, completion: nil)
+            }
+        })
         button.setBackgroundImage(#imageLiteral(resourceName: "blue_pixel"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
@@ -135,8 +147,9 @@ class LoginViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
     
-    @objc private func buttonTapped() {
+    @objc private func buttonTapped() throws {
         coordinator?.login()
+        throw AppError.incorrectPassword
     }
 }
 

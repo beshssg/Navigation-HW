@@ -11,6 +11,8 @@ import SnapKit
 class ProfileHeaderView: UIView {
     
     // MARK: - UIProperties:
+    private var renameStutusText: String? = nil
+    
     #if RELEASE
     public var usersData: CurrentUser? {
         didSet {
@@ -92,8 +94,19 @@ class ProfileHeaderView: UIView {
 
     // MARK: - Methods:
     @objc func statusTextChanged() {
-        statusField.text = statusShowText.text
-        statusField.sizeToFit()
+        do {
+            statusField.text = try statusThrow()
+            print(statusField.text!)
+        } catch {
+            print("Empty")
+        }
+    }
+    
+    private func statusThrow() throws -> String {
+        guard renameStutusText != nil else {
+            throw AppError.emptyStatus
+        }
+        return renameStutusText!
     }
     
     func autoLayout() {

@@ -11,6 +11,7 @@
 		8E4734E72717091A0027944B /* PostButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E62717091A0027944B /* PostButtonFactory.swift */; };
 		8E4734E927170A830027944B /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E827170A830027944B /* FeedModel.swift */; };
 		8E4734EB27170AF30027944B /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734EA27170AF30027944B /* PostDummy.swift */; };
+		8E473535271E9FED0027944B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473534271E9FED0027944B /* AppError.swift */; };
 		8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE2C26FB7262000F5C9E /* CustomButton.swift */; };
 		8E96DE332700AFBC000F5C9E /* FeedViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */; };
 		8E96DE4027066C19000F5C9E /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */; };
@@ -95,6 +96,7 @@
 		8E4734E62717091A0027944B /* PostButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButtonFactory.swift; sourceTree = "<group>"; };
 		8E4734E827170A830027944B /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		8E4734EA27170AF30027944B /* PostDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
+		8E473534271E9FED0027944B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		8E96DE2C26FB7262000F5C9E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerModel.swift; sourceTree = "<group>"; };
 		8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
@@ -234,14 +236,12 @@
 				8E9E6AC126EF505F008C7B5C /* MyLoginFactory.swift */,
 				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
 				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
-				8E96DE322700AFBC000F5C9E /* FeedModel.swift */,
-				8EAED4D526FA04E0001C6E0D /* PhotoObservModel.swift */,
-				8E96DE2C26FB7262000F5C9E /* CustomButton.swift */,
 				8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */,
 				8E4734E4271709030027944B /* PostButton.swift */,
 				8E4734E62717091A0027944B /* PostButtonFactory.swift */,
 				8E4734E827170A830027944B /* FeedModel.swift */,
 				8E4734EA27170AF30027944B /* PostDummy.swift */,
+				8E473534271E9FED0027944B /* AppError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -530,6 +530,7 @@
 				8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */,
 				8E9E6A0626DBB0F0008C7B5C /* PhotosCollectionViewCell.swift in Sources */,
 				8E9E69FA26DBAF6A008C7B5C /* LoginViewController.swift in Sources */,
+				8E473535271E9FED0027944B /* AppError.swift in Sources */,
 				8E96DE4227066CFC000F5C9E /* FeedCoordinator.swift in Sources */,
 				8E9E6A0C26DBB19C008C7B5C /* ProfileHeaderView.swift in Sources */,
 				8E4734E72717091A0027944B /* PostButtonFactory.swift in Sources */,
