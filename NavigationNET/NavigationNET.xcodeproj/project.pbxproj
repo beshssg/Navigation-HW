@@ -19,6 +19,7 @@
 		8E47355227242AAD0027944B /* MsJackson.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354D27242AAD0027944B /* MsJackson.mp3 */; };
 		8E47355327242AAD0027944B /* CapitaodeAreia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354E27242AAD0027944B /* CapitaodeAreia.mp3 */; };
 		8E47355427242AAD0027944B /* GetLucky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354F27242AAD0027944B /* GetLucky.mp3 */; };
+		8E473556272444490027944B /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473555272444490027944B /* RecordViewController.swift */; };
 		8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE2C26FB7262000F5C9E /* CustomButton.swift */; };
 		8E96DE332700AFBC000F5C9E /* FeedViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */; };
 		8E96DE4027066C19000F5C9E /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */; };
@@ -111,6 +112,7 @@
 		8E47354D27242AAD0027944B /* MsJackson.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MsJackson.mp3; sourceTree = "<group>"; };
 		8E47354E27242AAD0027944B /* CapitaodeAreia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CapitaodeAreia.mp3; sourceTree = "<group>"; };
 		8E47354F27242AAD0027944B /* GetLucky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GetLucky.mp3; sourceTree = "<group>"; };
+		8E473555272444490027944B /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		8E96DE2C26FB7262000F5C9E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerModel.swift; sourceTree = "<group>"; };
 		8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				8E9E69F926DBAF6A008C7B5C /* LoginViewController.swift */,
 				8E9E69FB26DBAF9B008C7B5C /* PhotosViewController.swift */,
 				8E473538272158170027944B /* PlayerViewController.swift */,
+				8E473555272444490027944B /* RecordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				8E9E6A0426DBB06F008C7B5C /* SetupConstraints.swift in Sources */,
 				8E96DE4427066D3B000F5C9E /* MainCoordinator.swift in Sources */,
 				8E9E69F826DBAF31008C7B5C /* PostViewController.swift in Sources */,
+				8E473556272444490027944B /* RecordViewController.swift in Sources */,
 				8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */,
 				8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */,
 				8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */,
