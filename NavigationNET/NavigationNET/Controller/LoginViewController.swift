@@ -165,6 +165,7 @@ class LoginViewController: UIViewController {
     private func bruteForce(passwordToUnlock: String) {
         let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
         var password: String = ""
+        var pass = password
         
         activityIndicator.startAnimating()
         
@@ -172,10 +173,10 @@ class LoginViewController: UIViewController {
             while self?.delegate?.checkerLogin(emailOrPhone: "Snake Eyes", password: password) != true {
                 password = self!.bruteForce.generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
                 
-                if password == passwordToUnlock {
+                if password == passwordToUnlock { [pass = password]
                     DispatchQueue.main.async {
                         self?.activityIndicator.stopAnimating()
-                        self?.passwordText.text = password
+                        self?.passwordText.text = pass
                         self?.passwordText.isSecureTextEntry = false
                     }
                 }
