@@ -43,9 +43,9 @@ class ProfileViewController: UIViewController {
     
     private var date: DateComponents? {
         didSet {
-            if date!.second == -1 {
-                date!.minute! -= 1
-                date!.second = 59
+            if date?.second == -1 {
+                date?.minute? -= 1
+                date?.second = 59
             }
         }
     }
@@ -122,11 +122,9 @@ class ProfileViewController: UIViewController {
         
         date = dateComponents
         
-        let firstTimer = Timer(timeInterval: 90, repeats: true) { timer in
-            self.date!.minute = 1
-            self.date!.second = 30
-            
-            self.timerFooterView.timerLabel.text = "До обновления осталось: \(self.date!.minute!) минут \(self.date!.second!) секунд."
+        let firstTimer = Timer(timeInterval: 90, repeats: true) { _ in
+            self.date?.minute = 1
+            self.date?.second = 30
             
             let alertController = UIAlertController(title: "Страница была обновлена",
                                                     message: nil,
@@ -137,9 +135,8 @@ class ProfileViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         
-        let secondTimer = Timer(timeInterval: 1, repeats: true) { [self] timer in
-            self.date!.second! -= 1
-            self.timerFooterView.timerLabel.text = "До обновления осталось: \(date!.minute!) минут \(date!.second!) секунд."
+        let secondTimer = Timer(timeInterval: 1, repeats: true) { _ in
+            self.date?.second? -= 1
         }
         RunLoop.main.add(firstTimer, forMode: .common)
         RunLoop.main.add(secondTimer, forMode: .common)
@@ -254,7 +251,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        timerFooterView.timerLabel.text = "До обновления осталось: \(date!.minute!) минут \(date!.second!) секунд."
+        if timerFooterView.timerLabel.text == timerFooterView.timerLabel.text {
+            timerFooterView.timerLabel.text = "До обновления осталось: \(date?.minute) минут \(date?.second) секунд."
+        } else {
+            print("Error")
+        }
         
         return timerFooterView
     }
