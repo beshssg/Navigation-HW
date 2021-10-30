@@ -122,9 +122,9 @@ class ProfileViewController: UIViewController {
         
         date = dateComponents
         
-        let firstTimer = Timer(timeInterval: 90, repeats: true) { _ in
-            self.date?.minute = 1
-            self.date?.second = 30
+        let firstTimer = Timer(timeInterval: 90, repeats: true) { [weak self]_ in
+            self?.date?.minute = 1
+            self?.date?.second = 30
             
             let alertController = UIAlertController(title: "Страница была обновлена",
                                                     message: nil,
@@ -132,7 +132,7 @@ class ProfileViewController: UIViewController {
             
             let cancelAction = UIAlertAction(title: "ОК", style: .default)
             alertController.addAction(cancelAction)
-            self.present(alertController, animated: true, completion: nil)
+            self?.present(alertController, animated: true, completion: nil)
         }
         
         let secondTimer = Timer(timeInterval: 1, repeats: true) { _ in
