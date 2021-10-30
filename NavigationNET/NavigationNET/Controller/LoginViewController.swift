@@ -173,8 +173,8 @@ class LoginViewController: UIViewController {
             while self?.delegate?.checkerLogin(emailOrPhone: "Snake Eyes", password: password) != true {
                 password = self!.bruteForce.generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
                 
-                if password == passwordToUnlock { [pass = password]
-                    DispatchQueue.main.async {
+                if password == passwordToUnlock {
+                    DispatchQueue.main.async { [pass = password]
                         self?.activityIndicator.stopAnimating()
                         self?.passwordText.text = pass
                         self?.passwordText.isSecureTextEntry = false
