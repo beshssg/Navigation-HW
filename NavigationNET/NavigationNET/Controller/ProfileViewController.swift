@@ -122,7 +122,7 @@ class ProfileViewController: UIViewController {
         
         date = dateComponents
         
-        let firstTimer = Timer(timeInterval: 90, repeats: true) { [weak self]_ in
+        let firstTimer = Timer(timeInterval: 90, repeats: true) { [weak self] _ in
             self?.date?.minute = 1
             self?.date?.second = 30
             
@@ -135,8 +135,8 @@ class ProfileViewController: UIViewController {
             self?.present(alertController, animated: true, completion: nil)
         }
         
-        let secondTimer = Timer(timeInterval: 1, repeats: true) { _ in
-            self.date?.second? -= 1
+        let secondTimer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
+            self?.date?.second? -= 1
         }
         RunLoop.main.add(firstTimer, forMode: .common)
         RunLoop.main.add(secondTimer, forMode: .common)
