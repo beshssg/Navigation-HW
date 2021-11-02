@@ -11,6 +11,7 @@
 		8E4734E72717091A0027944B /* PostButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E62717091A0027944B /* PostButtonFactory.swift */; };
 		8E4734E927170A830027944B /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E827170A830027944B /* FeedModel.swift */; };
 		8E4734EB27170AF30027944B /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734EA27170AF30027944B /* PostDummy.swift */; };
+		8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */; };
 		8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE2C26FB7262000F5C9E /* CustomButton.swift */; };
 		8E96DE332700AFBC000F5C9E /* FeedViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */; };
 		8E96DE4027066C19000F5C9E /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */; };
@@ -96,6 +97,7 @@
 		8E4734E62717091A0027944B /* PostButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButtonFactory.swift; sourceTree = "<group>"; };
 		8E4734E827170A830027944B /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
 		8E4734EA27170AF30027944B /* PostDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
+		8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTimerFooterView.swift; sourceTree = "<group>"; };
 		8E96DE2C26FB7262000F5C9E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerModel.swift; sourceTree = "<group>"; };
 		8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				8E9E6A0726DBB12E008C7B5C /* PhotosTableViewCell.swift */,
 				8E9E6A0926DBB165008C7B5C /* PostTableViewCell.swift */,
 				8E9E6A0B26DBB19C008C7B5C /* ProfileHeaderView.swift */,
+				8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */,
 				8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */,
 				8E9E6A0626DBB0F0008C7B5C /* PhotosCollectionViewCell.swift in Sources */,
+				8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */,
 				8E9E69FA26DBAF6A008C7B5C /* LoginViewController.swift in Sources */,
 				8E96DE4227066CFC000F5C9E /* FeedCoordinator.swift in Sources */,
 				8E9E6A0C26DBB19C008C7B5C /* ProfileHeaderView.swift in Sources */,

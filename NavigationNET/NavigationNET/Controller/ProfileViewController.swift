@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     
     private lazy var photosCollectionView = UITableView(frame: .zero, style: .plain)
     
+    private let timerFooterView = ProfileTimerFooterView()
+    
     private lazy var closeButton: CustomButton = { [weak self] in 
         var button = CustomButton(title: "", color: .clear) { return }
         button.sizeToFit()
@@ -40,6 +42,15 @@ class ProfileViewController: UIViewController {
         view.addSubview(blurEffectView)
         return view
     }()
+    
+    private var date: DateComponents? {
+        didSet {
+            if date?.second == -1 {
+                date?.minute? -= 1
+                date?.second = 59
+            }
+        }
+    }
     
     private lazy var photosFullScreen = UIImageView(image: profileHeaderView.imageAvatar.image)
     
@@ -91,8 +102,9 @@ class ProfileViewController: UIViewController {
             closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ]
-        
         NSLayoutConstraint.activate(constraints)
+        
+        configureTimer()
     }
     
     func testBackground() {
@@ -101,6 +113,35 @@ class ProfileViewController: UIViewController {
         #else
         view.backgroundColor = .red
         #endif
+    }
+    
+    // MARK: - RunLoop timer:
+    func configureTimer() {
+        var dateComponents  = DateComponents()
+        
+        dateComponents.minute = 1
+        dateComponents.second = 30
+        
+        date = dateComponents
+        
+        let firstTimer = Timer(timeInterval: 90, repeats: true) { [weak self] _ in
+            self?.date?.minute = 1
+            self?.date?.second = 30
+            
+            let alertController = UIAlertController(title: "Страница была обновлена",
+                                                    message: nil,
+                                                    preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "ОК", style: .default)
+            alertController.addAction(cancelAction)
+            self?.present(alertController, animated: true, completion: nil)
+        }
+        
+        let secondTimer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
+            self?.date?.second? -= 1
+        }
+        RunLoop.main.add(firstTimer, forMode: .common)
+        RunLoop.main.add(secondTimer, forMode: .common)
     }
     
     // MARK: - Animation methods:
@@ -209,5 +250,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         }
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if timerFooterView.timerLabel.text == timerFooterView.timerLabel.text {
+            timerFooterView.timerLabel.text = "До обновления осталось: \(date?.minute) минут \(date?.second) секунд."
+        } else {
+            print("Error")
+        }
+        
+        return timerFooterView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        70
     }
 }
