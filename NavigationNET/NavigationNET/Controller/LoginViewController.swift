@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     
-    var delegate: LoginViewControllerDelegate?
+    private var delegate: LoginViewControllerDelegate?
     
     private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
@@ -61,6 +61,21 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private lazy var bruteForceButton: CustomButton = {
+        let button = CustomButton(title: "Brute Force on", color: .systemGreen) { [weak self] in
+            self?.bruteForce(passwordToUnlock: "p")
+        }
+        button.tintColor = .white
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.stopAnimating()
+        return indicator
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,8 +104,8 @@ class LoginViewController: UIViewController {
     // MARK: - Methods:
     private func setupConstraints() {
         view.addSubview(scrollView)
-        [logoImage, emailText, passwordText, loginButton].forEach { scrollView.addSubview($0) }
-        [scrollView, logoImage, emailText, passwordText, loginButton].forEach { make in make.translatesAutoresizingMaskIntoConstraints = false }
+        [logoImage, emailText, passwordText, loginButton, bruteForceButton, activityIndicator].forEach { scrollView.addSubview($0) }
+        [scrollView, logoImage, emailText, passwordText, loginButton, bruteForceButton, activityIndicator].forEach { make in make.translatesAutoresizingMaskIntoConstraints = false }
         scrollView.keyboardDismissMode = .onDrag
         
         let constraints = [
@@ -118,7 +133,17 @@ class LoginViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leadingAnchor, constant: SetupConstraints.indent),
             loginButton.trailingAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.trailingAnchor, constant: -SetupConstraints.indent),
             loginButton.heightAnchor.constraint(equalToConstant: SetupConstraints.height),
-            loginButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 10)
+            loginButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 10),
+            
+            bruteForceButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
+            bruteForceButton.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor),
+            bruteForceButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor),
+            bruteForceButton.heightAnchor.constraint(equalTo: loginButton.heightAnchor),
+            
+            activityIndicator.trailingAnchor.constraint(equalTo: passwordText.trailingAnchor),
+            activityIndicator.topAnchor.constraint(equalTo: passwordText.topAnchor),
+            activityIndicator.bottomAnchor.constraint(equalTo: passwordText.bottomAnchor),
+            activityIndicator.widthAnchor.constraint(equalTo: activityIndicator.heightAnchor)
         ]
         NSLayoutConstraint.activate(constraints)
     }
@@ -133,6 +158,27 @@ class LoginViewController: UIViewController {
     @objc func keyboardHide(_ notification: Notification) {
         scrollView.contentInset = .zero
         scrollView.verticalScrollIndicatorInsets = .zero
+    }
+    
+    private func bruteForce(passwordToUnlock: String) {
+        let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
+        var password: String = ""
+        
+        activityIndicator.startAnimating()
+        
+        DispatchQueue.global().async { [weak self] in
+            while self?.delegate?.checkerLogin(emailOrPhone: "Snake Eyes", password: password) != true {
+                password = self!.bruteForce.generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
+                
+                if password == passwordToUnlock {
+                    DispatchQueue.main.async { [pass = password] in
+                        self?.activityIndicator.stopAnimating()
+                        self?.passwordText.text = pass
+                        self?.passwordText.isSecureTextEntry = false
+                    }
+                }
+            }
+        }
     }
     
     @objc private func buttonTapped() {
