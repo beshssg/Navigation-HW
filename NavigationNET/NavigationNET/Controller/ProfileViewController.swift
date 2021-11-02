@@ -254,7 +254,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if timerFooterView.timerLabel.text == timerFooterView.timerLabel.text {
-            timerFooterView.timerLabel.text = "До обновления осталось: \(date?.minute) минут \(date?.second) секунд."
+            timerFooterView.timerLabel.text = "До обновления осталось: \(date!.minute!) минут \(date!.second!) секунд."
         } else {
             print("Error")
         }

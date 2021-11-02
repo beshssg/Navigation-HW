@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     
     private var delegate: LoginViewControllerDelegate?
     
+    private lazy var bruteForce = BruteForce()
+    
     private lazy var logoImage: UIImageView = {
         let logo = UIImageView(image: #imageLiteral(resourceName: "logo"))
         return logo
@@ -63,7 +65,7 @@ class LoginViewController: UIViewController {
     
     private lazy var bruteForceButton: CustomButton = {
         let button = CustomButton(title: "Brute Force on", color: .systemGreen) { [weak self] in
-            self?.bruteForce(passwordToUnlock: "p")
+            self?.bruteForceStart(passwordToUnlock: "p")
         }
         button.tintColor = .white
         button.layer.cornerRadius = 10
@@ -160,7 +162,7 @@ class LoginViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
     
-    private func bruteForce(passwordToUnlock: String) {
+    private func bruteForceStart(passwordToUnlock: String) {
         let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
         var password: String = ""
         
