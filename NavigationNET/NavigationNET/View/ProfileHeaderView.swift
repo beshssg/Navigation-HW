@@ -95,18 +95,18 @@ class ProfileHeaderView: UIView {
     // MARK: - Methods:
     @objc func statusTextChanged() {
         do {
-            statusField.text = try statusThrow()
-            print(statusField.text!)
+            statusField.text = try statusReturn()
+            print(statusField.text ?? "")
         } catch {
             print("Empty")
         }
     }
     
-    private func statusThrow() throws -> String {
+    private func statusReturn() throws -> String {
         guard renameStutusText != nil else {
             throw AppError.emptyStatus
         }
-        return renameStutusText!
+        return renameStutusText ?? ""
     }
     
     func autoLayout() {

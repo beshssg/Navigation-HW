@@ -55,7 +55,8 @@ class LoginViewController: UIViewController {
     private lazy var loginButton: CustomButton = { [weak self] in
         let button = CustomButton(title: "Log In", color: .clear, target: { [weak self] in
             do {
-                try self?.buttonTapped()
+                self?.buttonTapped()
+                throw AppError.incorrectPassword
             } catch {
                 let alertController = UIAlertController(title: "Неправильно введен логин или пароль",
                                                         message: "Попробуйте ввести заново",
@@ -147,9 +148,8 @@ class LoginViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
     
-    @objc private func buttonTapped() throws {
+    @objc private func buttonTapped() {
         coordinator?.login()
-        throw AppError.incorrectPassword
     }
 }
 
