@@ -67,6 +67,16 @@ final class MainCoordinator {
             $0.start()
             tabBarViewControllers.append($0.navigationController)
         }
+        let playerViewController = PlayerViewController()
+        let playerTabBarItem = UITabBarItem(title: "Player", image: UIImage(systemName: "music.note.list"), selectedImage: nil)
+        playerViewController.tabBarItem = playerTabBarItem
+        tabBarViewControllers.append(playerViewController)
+        
+        let recordViewController = RecordViewController()
+        let recordTabBarItem = UITabBarItem(title: "Recorder", image: UIImage(systemName: "mic.fill"), selectedImage: nil)
+        recordViewController.tabBarItem = recordTabBarItem
+        tabBarViewControllers.append(recordViewController)
+        
         tabBarController.viewControllers = tabBarViewControllers
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.barTintColor = .clear

@@ -13,6 +13,15 @@
 		8E4734EB27170AF30027944B /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734EA27170AF30027944B /* PostDummy.swift */; };
 		8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */; };
 		8E473535271E9FED0027944B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473534271E9FED0027944B /* AppError.swift */; };
+		8E473539272158170027944B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473538272158170027944B /* PlayerViewController.swift */; };
+		8E47353B2721584D0027944B /* PlaylistProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47353A2721584D0027944B /* PlaylistProvider.swift */; };
+		8E47353D2721586A0027944B /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E47353C2721586A0027944B /* AudioTrack.swift */; };
+		8E47355027242AAD0027944B /* PonDeReplay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354B27242AAC0027944B /* PonDeReplay.mp3 */; };
+		8E47355127242AAD0027944B /* LoveNwantiti.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354C27242AAC0027944B /* LoveNwantiti.mp3 */; };
+		8E47355227242AAD0027944B /* MsJackson.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354D27242AAD0027944B /* MsJackson.mp3 */; };
+		8E47355327242AAD0027944B /* CapitaodeAreia.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354E27242AAD0027944B /* CapitaodeAreia.mp3 */; };
+		8E47355427242AAD0027944B /* GetLucky.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E47354F27242AAD0027944B /* GetLucky.mp3 */; };
+		8E473556272444490027944B /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E473555272444490027944B /* RecordViewController.swift */; };
 		8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE2C26FB7262000F5C9E /* CustomButton.swift */; };
 		8E96DE332700AFBC000F5C9E /* FeedViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */; };
 		8E96DE4027066C19000F5C9E /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */; };
@@ -100,6 +109,15 @@
 		8E4734EA27170AF30027944B /* PostDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
 		8E473530271D8DC80027944B /* ProfileTimerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTimerFooterView.swift; sourceTree = "<group>"; };
 		8E473534271E9FED0027944B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		8E473538272158170027944B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		8E47353A2721584D0027944B /* PlaylistProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistProvider.swift; sourceTree = "<group>"; };
+		8E47353C2721586A0027944B /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		8E47354B27242AAC0027944B /* PonDeReplay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PonDeReplay.mp3; sourceTree = "<group>"; };
+		8E47354C27242AAC0027944B /* LoveNwantiti.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LoveNwantiti.mp3; sourceTree = "<group>"; };
+		8E47354D27242AAD0027944B /* MsJackson.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MsJackson.mp3; sourceTree = "<group>"; };
+		8E47354E27242AAD0027944B /* CapitaodeAreia.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CapitaodeAreia.mp3; sourceTree = "<group>"; };
+		8E47354F27242AAD0027944B /* GetLucky.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GetLucky.mp3; sourceTree = "<group>"; };
+		8E473555272444490027944B /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		8E96DE2C26FB7262000F5C9E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8E96DE322700AFBC000F5C9E /* FeedViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerModel.swift; sourceTree = "<group>"; };
 		8E96DE3F27066C19000F5C9E /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
@@ -180,6 +198,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E473540272426510027944B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				8E47354E27242AAD0027944B /* CapitaodeAreia.mp3 */,
+				8E47354C27242AAC0027944B /* LoveNwantiti.mp3 */,
+				8E47354B27242AAC0027944B /* PonDeReplay.mp3 */,
+				8E47354F27242AAD0027944B /* GetLucky.mp3 */,
+				8E47354D27242AAD0027944B /* MsJackson.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		8E96DE3427066860000F5C9E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +277,8 @@
 				8E4734EA27170AF30027944B /* PostDummy.swift */,
 				8ED0AC1A270DAC3400476161 /* BruteForce.swift */,
 				8E473534271E9FED0027944B /* AppError.swift */,
+				8E47353A2721584D0027944B /* PlaylistProvider.swift */,
+				8E47353C2721586A0027944B /* AudioTrack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +303,8 @@
 				8E9E69F726DBAF31008C7B5C /* PostViewController.swift */,
 				8E9E69F926DBAF6A008C7B5C /* LoginViewController.swift */,
 				8E9E69FB26DBAF9B008C7B5C /* PhotosViewController.swift */,
+				8E473538272158170027944B /* PlayerViewController.swift */,
+				8E473555272444490027944B /* RecordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +329,7 @@
 		8E9E6A1526DBB394008C7B5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E473540272426510027944B /* Music */,
 				8E9E6A0126DBB04A008C7B5C /* Assets.xcassets */,
 				8E9E69E826DBAD24008C7B5C /* LaunchScreen.storyboard */,
 				8E9E69EB26DBAD24008C7B5C /* Info.plist */,
@@ -455,7 +490,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E47355127242AAD0027944B /* LoveNwantiti.mp3 in Resources */,
+				8E47355027242AAD0027944B /* PonDeReplay.mp3 in Resources */,
 				8E9E6A0226DBB04A008C7B5C /* Assets.xcassets in Resources */,
+				8E47355427242AAD0027944B /* GetLucky.mp3 in Resources */,
+				8E47355227242AAD0027944B /* MsJackson.mp3 in Resources */,
+				8E47355327242AAD0027944B /* CapitaodeAreia.mp3 in Resources */,
 				8E9E69EA26DBAD24008C7B5C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,10 +568,12 @@
 				8E9E69F626DBAE1E008C7B5C /* ProfileViewController.swift in Sources */,
 				8E9E6AC226EF505F008C7B5C /* MyLoginFactory.swift in Sources */,
 				8E96DE2D26FB7262000F5C9E /* CustomButton.swift in Sources */,
+				8E473539272158170027944B /* PlayerViewController.swift in Sources */,
 				8E9E6A0426DBB06F008C7B5C /* SetupConstraints.swift in Sources */,
 				8E96DE4427066D3B000F5C9E /* MainCoordinator.swift in Sources */,
 				8E9E69F826DBAF31008C7B5C /* PostViewController.swift in Sources */,
 				8ED0AC1B270DAC3400476161 /* BruteForce.swift in Sources */,
+				8E473556272444490027944B /* RecordViewController.swift in Sources */,
 				8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */,
 				8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */,
 				8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */,
@@ -539,6 +581,7 @@
 				8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */,
 				8E9E69FA26DBAF6A008C7B5C /* LoginViewController.swift in Sources */,
 				8E473535271E9FED0027944B /* AppError.swift in Sources */,
+				8E47353B2721584D0027944B /* PlaylistProvider.swift in Sources */,
 				8E96DE4227066CFC000F5C9E /* FeedCoordinator.swift in Sources */,
 				8E9E6A0C26DBB19C008C7B5C /* ProfileHeaderView.swift in Sources */,
 				8E4734E72717091A0027944B /* PostButtonFactory.swift in Sources */,
@@ -553,6 +596,7 @@
 				8E9E6ABC26EE2AC8008C7B5C /* LoginViewControllerDelegate.swift in Sources */,
 				8E9E69E026DBAD22008C7B5C /* SceneDelegate.swift in Sources */,
 				8E4734E5271709030027944B /* PostButton.swift in Sources */,
+				8E47353D2721586A0027944B /* AudioTrack.swift in Sources */,
 				8E4734E927170A830027944B /* FeedModel.swift in Sources */,
 				8E96DE4027066C19000F5C9E /* NavigationCoordinator.swift in Sources */,
 				8E9E6A0026DBB027008C7B5C /* PostModel.swift in Sources */,
