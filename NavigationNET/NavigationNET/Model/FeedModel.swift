@@ -13,13 +13,14 @@ struct FeedModel {
         let instance = FeedModel()
         return instance
     }()
-
-    let posts: [PostDummy]
-
+    
+    var posts = [PostDummy]()
+    
     private init() {
-        posts = [
-            PostDummy(title: "Пост 1"),
-            PostDummy(title: "Пост 2")
-        ]
+        
+        for index in 1...Int.random(in: 2...10) {
+            posts.append(PostDummy(title: "Пост \(index)",
+                                   toDoUrl: "https://jsonplaceholder.typicode.com/todos/\(index)"))
+        }
     }
 }

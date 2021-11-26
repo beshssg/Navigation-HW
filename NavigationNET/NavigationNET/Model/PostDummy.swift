@@ -9,4 +9,5 @@ import UIKit
 
 struct PostDummy {
     let title: String
+    let toDoUrl: String
 }

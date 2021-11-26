@@ -10,6 +10,7 @@ import UIKit
 final class FeedCoordinator: NavigationCoordinator {
     var childCoordinators: [NavigationCoordinator]
     var navigationController: UINavigationController
+    var selectedPostIndex: Int?
 
     init(navigationController: UINavigationController) {
         childCoordinators = []
@@ -26,14 +27,23 @@ final class FeedCoordinator: NavigationCoordinator {
     }
     
     func showPost(number index: Int) {
+        guard var selectedPostIndex = selectedPostIndex else {
+            guard let topViewController = navigationController.topViewController else { return }
+            
+            showAlert(presentedOn: topViewController, title: "Ошибка", message: "Невозможно отобразить пост")
+            
+            return
+        }
+        let url = FeedModel.shared.posts[selectedPostIndex].toDoUrl
+        let postViewController = PostViewController(url: url)
 
-            let postViewController = PostViewController()
-            postViewController.coordinator = self
+        postViewController.coordinator = self
 
-            let post = FeedModel.shared.posts[index]
-            postViewController.title = post.title
-
-            navigationController.pushViewController(postViewController, animated: true)
+        let post = FeedModel.shared.posts[index]
+        postViewController.title = post.title
+        selectedPostIndex = index
+        
+        navigationController.pushViewController(postViewController, animated: true)
         }
     
     func showDeletePostAlert(presentedOn viewController: UIViewController) {

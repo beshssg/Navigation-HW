@@ -77,6 +77,11 @@ final class MainCoordinator {
         recordViewController.tabBarItem = recordTabBarItem
         tabBarViewControllers.append(recordViewController)
         
+        let postViewController = PostViewController(url: "url")
+        let postTabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "paperplane.fill"), selectedImage: nil)
+        postViewController.tabBarItem = postTabBarItem
+        tabBarViewControllers.append(postViewController)
+        
         tabBarController.viewControllers = tabBarViewControllers
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.barTintColor = .clear
