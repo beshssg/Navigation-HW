@@ -77,7 +77,7 @@ final class MainCoordinator {
         recordViewController.tabBarItem = recordTabBarItem
         tabBarViewControllers.append(recordViewController)
         
-        let postViewController = PostViewController(url: "url")
+        let postViewController = PostViewController(toDoUrl: "toDoUrl", planetUrl: "planetUrl")
         let postTabBarItem = UITabBarItem(title: "Post", image: UIImage(systemName: "paperplane.fill"), selectedImage: nil)
         postViewController.tabBarItem = postTabBarItem
         tabBarViewControllers.append(postViewController)

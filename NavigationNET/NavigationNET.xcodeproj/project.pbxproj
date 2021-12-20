@@ -10,6 +10,9 @@
 		8E1F6F3627406112003F1A28 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F6F3527406112003F1A28 /* NetworkManager.swift */; };
 		8E1F6F3827406192003F1A28 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F6F3727406192003F1A28 /* AppConfiguration.swift */; };
 		8E1F6F3B274F9987003F1A28 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F6F3A274F9987003F1A28 /* ToDoModel.swift */; };
+		8E1F6F3D276FBABF003F1A28 /* Pluralization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F6F3C276FBABF003F1A28 /* Pluralization.swift */; };
+		8E1F6F3F276FBAEB003F1A28 /* ExtensionInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F6F3E276FBAEB003F1A28 /* ExtensionInt.swift */; };
+		8E1F6F41276FBB6E003F1A28 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1F6F40276FBB6E003F1A28 /* Planet.swift */; };
 		8E4734E5271709030027944B /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E4271709030027944B /* PostButton.swift */; };
 		8E4734E72717091A0027944B /* PostButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E62717091A0027944B /* PostButtonFactory.swift */; };
 		8E4734E927170A830027944B /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4734E827170A830027944B /* FeedModel.swift */; };
@@ -109,6 +112,9 @@
 		8E1F6F3527406112003F1A28 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8E1F6F3727406192003F1A28 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		8E1F6F3A274F9987003F1A28 /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
+		8E1F6F3C276FBABF003F1A28 /* Pluralization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pluralization.swift; sourceTree = "<group>"; };
+		8E1F6F3E276FBAEB003F1A28 /* ExtensionInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionInt.swift; sourceTree = "<group>"; };
+		8E1F6F40276FBB6E003F1A28 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		8E4734E4271709030027944B /* PostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
 		8E4734E62717091A0027944B /* PostButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostButtonFactory.swift; sourceTree = "<group>"; };
 		8E4734E827170A830027944B /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
@@ -288,6 +294,8 @@
 				8E1F6F3527406112003F1A28 /* NetworkManager.swift */,
 				8E1F6F3727406192003F1A28 /* AppConfiguration.swift */,
 				8E1F6F3A274F9987003F1A28 /* ToDoModel.swift */,
+				8E1F6F3C276FBABF003F1A28 /* Pluralization.swift */,
+				8E1F6F40276FBB6E003F1A28 /* Planet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				8E9E6A0D26DBB1C1008C7B5C /* ExtensionUITextFiled.swift */,
+				8E1F6F3E276FBAEB003F1A28 /* ExtensionInt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -582,11 +591,13 @@
 				8E96DE4427066D3B000F5C9E /* MainCoordinator.swift in Sources */,
 				8E9E69F826DBAF31008C7B5C /* PostViewController.swift in Sources */,
 				8ED0AC1B270DAC3400476161 /* BruteForce.swift in Sources */,
+				8E1F6F3D276FBABF003F1A28 /* Pluralization.swift in Sources */,
 				8E473556272444490027944B /* RecordViewController.swift in Sources */,
 				8E9E6AB826EA3A27008C7B5C /* User.swift in Sources */,
 				8E1F6F3627406112003F1A28 /* NetworkManager.swift in Sources */,
 				8E9E6AC026EE304F008C7B5C /* LoginInspector.swift in Sources */,
 				8E9E6ABA26EE29FA008C7B5C /* Checker.swift in Sources */,
+				8E1F6F41276FBB6E003F1A28 /* Planet.swift in Sources */,
 				8E9E6A0626DBB0F0008C7B5C /* PhotosCollectionViewCell.swift in Sources */,
 				8E473531271D8DC80027944B /* ProfileTimerFooterView.swift in Sources */,
 				8E1F6F3B274F9987003F1A28 /* ToDoModel.swift in Sources */,
@@ -606,6 +617,7 @@
 				8E9E69DE26DBAD22008C7B5C /* AppDelegate.swift in Sources */,
 				8E9E6A0826DBB12E008C7B5C /* PhotosTableViewCell.swift in Sources */,
 				8E9E6ABC26EE2AC8008C7B5C /* LoginViewControllerDelegate.swift in Sources */,
+				8E1F6F3F276FBAEB003F1A28 /* ExtensionInt.swift in Sources */,
 				8E9E69E026DBAD22008C7B5C /* SceneDelegate.swift in Sources */,
 				8E4734E5271709030027944B /* PostButton.swift in Sources */,
 				8E47353D2721586A0027944B /* AudioTrack.swift in Sources */,

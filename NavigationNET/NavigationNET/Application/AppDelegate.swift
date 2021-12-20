@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         print("Fetching data from \(apiUrl)")
         
-        NetworkService.startDataTast(with: apiUrl) { result in
+        NetworkService.startDataTask(with: apiUrl) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)

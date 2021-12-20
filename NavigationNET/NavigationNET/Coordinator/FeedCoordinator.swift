@@ -34,8 +34,9 @@ final class FeedCoordinator: NavigationCoordinator {
             
             return
         }
-        let url = FeedModel.shared.posts[selectedPostIndex].toDoUrl
-        let postViewController = PostViewController(url: url)
+        let toDoUrl = FeedModel.shared.posts[selectedPostIndex].toDoUrl
+        let planetUrl = FeedModel.shared.posts[selectedPostIndex].planetUrl
+        let postViewController = PostViewController(toDoUrl: toDoUrl, planetUrl: planetUrl)
 
         postViewController.coordinator = self
 

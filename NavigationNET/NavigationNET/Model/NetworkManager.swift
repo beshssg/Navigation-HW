@@ -8,22 +8,22 @@
 import UIKit
 
 struct NetworkService {
-    static func startDataTast(with url: URL, completion: ((Result<(HTTPURLResponse, Data), Error>) -> Void)? = nil) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion?(.failure(error))
-                return
-            }
+    static func makeDataTask(with url: URL, completion: ((Result<(HTTPURLResponse, Data), Error>) -> Void)? = nil) -> URLSessionDataTask {
+        return URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let response = response as? HTTPURLResponse,
                   response.statusCode == 200,
                   let mimeType = response.mimeType,
                   mimeType.hasSuffix("json"),
                   let data = data else {
-                completion?(.failure(NetworkError.badResponse))
-                return
-            }
-            completion?(.success((response, data)))
-        }.resume()
+                      completion?(.failure(NetworkError.badResponse))
+                      return
+                  }
+               completion?(.success((response, data)))
+           }
+    }
+    static func startDataTask(with url: URL, completion: ((Result<(HTTPURLResponse, Data), Error>) -> Void)? = nil) {
+            let dataTask = NetworkService.makeDataTask(with: url, completion: completion)
+            dataTask.resume()
     }
 }
 
