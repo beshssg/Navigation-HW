@@ -7,8 +7,11 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate {
+protocol LoginViewControllerDelegate: AnyObject {
     func checkerLogin(emailOrPhone: String, password: String) -> Bool
+    func loginControllerDidValidateCredentials(_ loginController: LoginViewController, completion: @escaping CredentialsVerificationCompletionBlock)
+    func loginControllerDidRegisterUser(_ loginController: LoginViewController, completion: @escaping CredentialsVerificationCompletionBlock)
+    
 }
 
 protocol LoginFactory {

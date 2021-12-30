@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Checker {
     static let shared = Checker()

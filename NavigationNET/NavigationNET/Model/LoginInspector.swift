@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Firebase
 
-class LoginInspector: LoginViewControllerDelegate {
-    func checkerLogin(emailOrPhone: String, password: String) -> Bool {
-        return Checker.shared.check(emailOrPhone: emailOrPhone, password: password)
-    }
-}
+//class LoginInspector: LoginViewControllerDelegate {
+//    func checkerLogin(emailOrPhone: String, password: String) -> Bool {
+//        return Checker.shared.check(emailOrPhone: emailOrPhone, password: password)
+//    }
+//}
+
+
