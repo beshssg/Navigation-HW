@@ -12,7 +12,7 @@ class Checker {
     static let shared = Checker()
     
     private(set) var login = "Snake Eyes".hash
-    private(set) var password = "p".hash
+    private(set) var password = "12345".hash
     
     private init() {}
     

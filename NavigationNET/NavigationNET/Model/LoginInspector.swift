@@ -47,7 +47,7 @@ class LoginInspector: LoginViewControllerDelegate {
             return
         }
         Auth.auth().createUser(withEmail: login, password: password) { (result, error) in
-            if let error = error as NSError?, let code = AuthErrorCode(rawValue: error.code) {
+            if let error = error as NSError?, let _ = AuthErrorCode(rawValue: error.code) {
                 print(error)
                 completion(.failure(error))
                 return
