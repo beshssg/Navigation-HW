@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     
-    private var delegate: LoginViewControllerDelegate?
+    public var delegate: LoginViewControllerDelegate?
     
     private lazy var bruteForce = BruteForce()
     
