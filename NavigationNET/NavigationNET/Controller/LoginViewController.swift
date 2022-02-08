@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -14,7 +15,7 @@ class LoginViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     
-    private var delegate: LoginViewControllerDelegate?
+    public var delegate: LoginViewControllerDelegate?
     
     private lazy var bruteForce = BruteForce()
     
@@ -197,7 +198,42 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func buttonTapped() {
-        coordinator?.login()
+        delegate?.loginControllerDidValidateCredentials(self) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                self.coordinator?.showAlert(presentedOn: self, title: "Ошибка", message: error.localizedDescription)
+                return
+            case .success(let allowedLogin):
+                if allowedLogin {
+                    self.coordinator?.login()
+                } else {
+                    self.coordinator?.showAlert(presentedOn: self,
+                                                title: "Указанная комбинация логина и пароля не найдена",
+                                                message: "Хотите зарегистрировать нового пользователя с указанными email и паролем?",
+                                                actions: [UIAlertAction(title: "Зарегистрироваться",style: .default, handler: { action in
+                        self.delegate?.loginControllerDidRegisterUser(self, completion: { registerResult in
+                            
+                            switch registerResult {
+                            case .failure(let registerError):
+                                self.coordinator?.showAlert(presentedOn: self, title: "Ошибка", message: registerError.localizedDescription)
+                                return
+                            case .success(let registered):
+                                if !registered {
+                                    self.coordinator?.showAlert(presentedOn: self, title: "Ошибка", message: "Невозможно выполнить вход")
+                                    return
+                                }
+                                self.coordinator?.login()
+                            }
+                        })
+                    }),
+                                                          UIAlertAction(title: "Попробовать ещё раз",
+                                                                        style: .cancel,
+                                                                        handler: nil)], completion: nil)
+                }
+                return
+            }
+        }
     }
 }
-

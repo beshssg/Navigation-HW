@@ -46,6 +46,7 @@ final class MainCoordinator {
 
     private func setupProfileCoordinator() {
         let loginViewController = LoginViewController()
+        loginViewController.delegate = LoginInspector()
         let profileNavigationController = UINavigationController(rootViewController: loginViewController)
         let profileCoordinator = ProfileCoordinator(navigationController: profileNavigationController)
         childCoordinators.append(profileCoordinator)
